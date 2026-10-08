@@ -1,65 +1,68 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-  <title>鮨 といろ お品書き</title>
+  <title>鮨 といろ｜お品書き</title>
 
   <style>
+
+    /* =========================
+       全体設定
+       ========================= */
 
     * {
       box-sizing: border-box;
     }
 
     :root {
+      --background: #050814;
       --gold: #d4af37;
       --gold-dark: #8f7440;
       --text: #f8f2e8;
-      --sub-text: #cfc2a5;
-    }
-
-    html {
-      scroll-behavior: smooth;
+      --subtext: #cfc2a5;
     }
 
     body {
       margin: 0;
-      padding: 0 0 60px;
-
-      background:
-        linear-gradient(
-          to bottom,
-          #050814 0%,
-          #090d19 50%,
-          #111827 100%
-        );
-
+      min-height: 100vh;
+      background: linear-gradient(
+        to bottom,
+        #050814,
+        #090d19,
+        #111827
+      );
       color: var(--text);
-
       font-family:
         "Yu Mincho",
         "Hiragino Mincho ProN",
         serif;
     }
 
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
 
     /* =========================
-       ヘッダー
+       ロゴ・ヘッダー
        ========================= */
 
     .header {
       position: sticky;
       top: 0;
-
-      width: 100%;
-
       z-index: 1000;
 
-      text-align: center;
-
-      padding: 6px 16px 8px;
+      width: 100%;
 
       background: rgba(3, 6, 15, 0.97);
 
@@ -67,39 +70,37 @@
         1px solid rgba(212, 175, 55, 0.4);
 
       backdrop-filter: blur(8px);
+
+      text-align: center;
+      padding: 7px 12px 9px;
     }
 
     .logo {
-      width: 55px;
-
       display: block;
-
-      margin: 0 auto 2px;
+      width: 55px;
+      height: auto;
+      margin: 0 auto 4px;
     }
 
     .shop-name {
-      font-size: 9px;
-
-      letter-spacing: 3px;
-
+      font-size: 10px;
       color: var(--gold);
-
-      margin-bottom: 5px;
+      letter-spacing: 3px;
+      margin-bottom: 7px;
     }
 
     .gold-line {
       width: 100px;
       height: 1px;
 
-      margin: 4px auto 7px;
+      margin: 5px auto 9px;
 
-      background:
-        linear-gradient(
-          to right,
-          transparent,
-          var(--gold),
-          transparent
-        );
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--gold),
+        transparent
+      );
     }
 
 
@@ -109,64 +110,52 @@
 
     .language {
       display: flex;
-
       justify-content: center;
-
-      gap: 8px;
+      gap: 10px;
     }
 
     .language button {
-      padding: 6px 16px;
+      padding: 7px 19px;
 
       font-size: 13px;
 
-      font-family: inherit;
-
       color: var(--text);
-
       background: transparent;
 
-      border:
-        1px solid var(--gold-dark);
+      border: 1px solid var(--gold-dark);
+      border-radius: 30px;
 
-      border-radius: 999px;
-
-      cursor: pointer;
+      transition: 0.2s;
     }
 
     .language button.active {
-      color: #050814;
-
       background: var(--gold);
-
+      color: #050814;
       border-color: var(--gold);
     }
 
 
     /* =========================
-       ページ
+       メイン部分
        ========================= */
 
     .container {
       width: 100%;
-
       max-width: 580px;
 
       margin: 0 auto;
-
-      padding: 18px 16px 0;
+      padding: 24px 16px 60px;
     }
 
     .panel {
-      background:
-        rgba(255, 255, 255, 0.035);
+      background: rgba(255, 255, 255, 0.035);
 
       border:
-        1px solid rgba(212, 175, 55, 0.25);
+        1px solid rgba(212, 175, 55, 0.3);
 
       border-radius: 16px;
 
-      padding: 24px 18px 30px;
+      padding: 30px 20px;
 
       box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.25);
@@ -175,180 +164,107 @@
     h1 {
       text-align: center;
 
-      font-size: 26px;
-
+      font-size: 28px;
       font-weight: normal;
-
       letter-spacing: 5px;
 
-      margin: 0 0 25px;
+      margin: 0 0 32px;
     }
 
     h2 {
       text-align: center;
 
-      font-size: 23px;
-
+      font-size: 24px;
       font-weight: normal;
-
       letter-spacing: 3px;
 
-      margin: 0 0 8px;
-    }
-
-    .price {
-      text-align: center;
-
-      font-size: 20px;
-
-      color: var(--gold);
-
-      margin-bottom: 25px;
+      margin: 0 0 12px;
     }
 
 
     /* =========================
-       最初の画面
+       コース選択ボタン
        ========================= */
 
-    .top-menu {
-      max-width: 450px;
-
-      margin: 0 auto;
-    }
-
-    .select-button {
+    .course-button {
       display: block;
 
       width: 100%;
 
-      margin: 15px 0;
+      padding: 24px 15px;
+      margin: 17px 0;
 
-      padding: 20px 15px;
-
-      font-size: 19px;
-
-      font-family: inherit;
+      font-size: 20px;
 
       color: var(--text);
 
-      background:
-        rgba(255, 255, 255, 0.035);
+      background: rgba(255, 255, 255, 0.03);
 
       border:
-        1px solid rgba(212, 175, 55, 0.5);
+        1px solid rgba(212, 175, 55, 0.55);
 
       border-radius: 10px;
-
-      cursor: pointer;
 
       transition: 0.2s;
     }
 
-    .select-button:hover {
-      background:
-        rgba(212, 175, 55, 0.1);
+    .course-button:hover {
+      background: rgba(212, 175, 55, 0.1);
     }
 
 
     /* =========================
-       メニュー
+       コース料理一覧
        ========================= */
 
-    .menu-page {
-      display: none;
-    }
-
-    .tap-hint {
+    .course-price {
       text-align: center;
 
-      font-size: 12px;
+      color: var(--gold);
 
-      color: var(--sub-text);
+      font-size: 22px;
+      letter-spacing: 1px;
 
-      margin-bottom: 20px;
+      margin-bottom: 35px;
+    }
+
+    .section {
+      margin-top: 35px;
     }
 
     .category {
       text-align: center;
 
-      font-size: 19px;
-
-      font-weight: bold;
-
       color: var(--gold);
 
-      letter-spacing: 2px;
+      font-size: 20px;
+      font-weight: normal;
+      letter-spacing: 3px;
 
-      margin-top: 34px;
-
-      margin-bottom: 15px;
-
-      padding-bottom: 8px;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
 
       border-bottom:
         1px solid rgba(212, 175, 55, 0.35);
     }
 
-    .item {
+    .dish-list {
+      list-style: none;
+
+      padding: 0;
+      margin: 0;
+    }
+
+    .dish-list li {
       text-align: center;
 
       font-size: 17px;
-
       line-height: 1.9;
 
-      margin: 10px 0;
+      padding: 8px 4px;
+      margin-bottom: 6px;
 
-      padding: 6px 8px;
-
-      color: #f5eee2;
-
-      border-radius: 8px;
-    }
-
-    .dish {
-      cursor: pointer;
-
-      transition: 0.2s;
-    }
-
-    .dish::after {
-      content: "  ›";
-
-      color: var(--gold);
-
-      font-size: 18px;
-    }
-
-    .dish:hover {
-      background:
-        rgba(212, 175, 55, 0.08);
-    }
-
-    .special-item {
-      text-align: center;
-
-      font-size: 19px;
-
-      font-weight: bold;
-
-      margin: 30px 0 18px;
-
-      padding: 14px 10px;
-
-      border-top:
-        1px solid rgba(212, 175, 55, 0.25);
-
-      border-bottom:
-        1px solid rgba(212, 175, 55, 0.25);
-
-      cursor: pointer;
-    }
-
-    .special-item::after {
-      content: "  ›";
-
-      color: var(--gold);
+      color: var(--text);
     }
 
 
@@ -359,251 +275,76 @@
     .back-button {
       display: block;
 
-      margin: 45px auto 0;
+      margin: 48px auto 0;
 
-      padding: 10px 28px;
+      padding: 12px 30px;
 
       font-size: 15px;
 
-      font-family: inherit;
-
       color: var(--text);
-
       background: transparent;
 
-      border:
-        1px solid var(--gold-dark);
+      border: 1px solid var(--gold-dark);
+      border-radius: 30px;
+    }
 
-      border-radius: 999px;
-
-      cursor: pointer;
+    .back-button:hover {
+      background: rgba(212, 175, 55, 0.1);
     }
 
 
     /* =========================
-       店舗情報
+       フッター
        ========================= */
 
-    .shop-info {
-      width: 100%;
-
-      max-width: 580px;
-
-      margin: 45px auto 0;
-
-      padding: 0 16px;
-
-      text-align: center;
-    }
-
-    .shop-info-inner {
-      padding: 30px 20px;
-
-      border-top:
-        1px solid rgba(212, 175, 55, 0.35);
-    }
-
-    .shop-info-logo {
-      width: 45px;
-
-      opacity: 0.8;
-
-      margin-bottom: 12px;
-    }
-
-    .shop-info-title {
-      color: var(--gold);
-
-      font-size: 18px;
-
-      letter-spacing: 3px;
-
-      margin-bottom: 25px;
-    }
-
-    .shop-info-row {
-      margin: 15px 0;
-
-      font-size: 14px;
-
-      line-height: 1.8;
-
-      color: var(--sub-text);
-    }
-
-    .shop-info-label {
-      color: var(--gold);
-
-      font-size: 12px;
-
-      margin-bottom: 3px;
-    }
-
-    .instagram-button {
-      display: inline-block;
-
-      margin-top: 18px;
-
-      padding: 10px 26px;
-
-      color: var(--text);
-
-      text-decoration: none;
-
-      border:
-        1px solid var(--gold-dark);
-
-      border-radius: 999px;
-
-      font-size: 14px;
-    }
-
-
-    /* =========================
-       詳細ポップアップ
-       ========================= */
-
-    .modal {
-      display: none;
-
-      position: fixed;
-
-      inset: 0;
-
-      z-index: 3000;
-
-      background:
-        rgba(0, 0, 0, 0.78);
-
-      padding: 18px;
-
-      align-items: center;
-
-      justify-content: center;
-    }
-
-    .modal.show {
-      display: flex;
-    }
-
-    .modal-card {
-      position: relative;
-
-      width: 100%;
-
-      max-width: 500px;
-
-      max-height: 85vh;
-
-      overflow-y: auto;
-
-      background: #090d19;
-
-      border:
-        1px solid rgba(212, 175, 55, 0.6);
-
-      border-radius: 16px;
-
-      padding: 30px 22px;
-
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.6);
-    }
-
-    .modal-close {
-      position: absolute;
-
-      top: 8px;
-      right: 12px;
-
-      border: none;
-
-      background: transparent;
-
-      color: white;
-
-      font-size: 30px;
-
-      cursor: pointer;
-    }
-
-    .modal-title {
+    .footer {
       text-align: center;
 
-      color: var(--gold);
+      margin-top: 45px;
 
-      font-size: 22px;
-
-      font-weight: normal;
-
-      line-height: 1.5;
-
-      margin: 6px 30px 25px;
-    }
-
-    .detail-block {
-      margin-top: 20px;
-    }
-
-    .detail-label {
-      color: var(--gold);
-
-      font-size: 14px;
-
-      margin-bottom: 6px;
-    }
-
-    .detail-text {
-      font-size: 15px;
-
-      line-height: 1.8;
-    }
-
-    .allergy-box {
-      margin-top: 24px;
-
-      padding: 15px;
-
-      border:
-        1px solid rgba(212, 175, 55, 0.35);
-
-      border-radius: 10px;
-
-      background:
-        rgba(212, 175, 55, 0.05);
-    }
-
-    .allergy-note {
-      color: var(--sub-text);
+      color: var(--gold-dark);
 
       font-size: 11px;
-
-      line-height: 1.7;
-
-      margin-top: 8px;
+      letter-spacing: 3px;
     }
 
 
-    @media screen and (max-width: 480px) {
+    /* =========================
+       スマホ対応
+       ========================= */
+
+    @media (max-width: 480px) {
+
+      .logo {
+        width: 50px;
+      }
+
+      .container {
+        padding: 20px 14px 45px;
+      }
 
       .panel {
-        padding: 22px 14px 26px;
+        padding: 26px 15px;
       }
 
       h1 {
-        font-size: 24px;
+        font-size: 25px;
       }
 
       h2 {
-        font-size: 21px;
-      }
-
-      .item {
-        font-size: 16px;
+        font-size: 22px;
       }
 
       .category {
-        font-size: 18px;
+        font-size: 19px;
+      }
+
+      .dish-list li {
+        font-size: 16px;
+      }
+
+      .course-button {
+        font-size: 19px;
       }
 
     }
@@ -616,1670 +357,766 @@
 <body>
 
 
-<!-- =========================
-     ヘッダー
-     ========================= -->
+  <!-- =========================
+       上部ロゴ・言語切り替え
+       ========================= -->
 
-<header class="header">
+  <header class="header">
 
-  <img
-    src="logo.png"
-    alt="鮨 といろ"
-    class="logo"
-  >
-
-  <div class="shop-name">
-    SUSHI TOIRO
-  </div>
-
-  <div class="gold-line"></div>
-
-  <div class="language">
-
-    <button
-      id="jpButton"
-      class="active"
-      onclick="setLanguage('jp')"
+    <img
+      src="logo.png"
+      alt="鮨 といろ"
+      class="logo"
     >
-      日本語
-    </button>
 
-    <button
-      id="enButton"
-      onclick="setLanguage('en')"
-    >
-      English
-    </button>
-
-  </div>
-
-</header>
-
-
-
-<main class="container">
-
-<div class="panel">
-
-
-<!-- =========================
-     最初の画面
-     ========================= -->
-
-<div id="home" class="top-menu">
-
-  <div class="jp">
-
-    <h1>お品書き</h1>
-
-    <button
-      class="select-button"
-      onclick="showCourse('9900')"
-    >
-      9,900円コース
-    </button>
-
-    <button
-      class="select-button"
-      onclick="showCourse('13900')"
-    >
-      13,900円コース
-    </button>
-
-    <button
-      class="select-button"
-      onclick="showCourse('16900')"
-    >
-      16,900円コース
-    </button>
-
-    <button
-      class="select-button"
-      onclick="showDrink()"
-    >
-      ドリンクメニュー
-    </button>
-
-  </div>
-
-
-  <div
-    class="en"
-    style="display:none;"
-  >
-
-    <h1>Menu</h1>
-
-    <button
-      class="select-button"
-      onclick="showCourse('9900')"
-    >
-      ¥9,900 Course
-    </button>
-
-    <button
-      class="select-button"
-      onclick="showCourse('13900')"
-    >
-      ¥13,900 Course
-    </button>
-
-    <button
-      class="select-button"
-      onclick="showCourse('16900')"
-    >
-      ¥16,900 Course
-    </button>
-
-    <button
-      class="select-button"
-      onclick="showDrink()"
-    >
-      Drinks
-    </button>
-
-  </div>
-
-</div>
-
-
-
-<!-- =========================
-     コース表示
-     ========================= -->
-
-<div
-  id="coursePage"
-  class="menu-page"
->
-
-  <div id="courseContent"></div>
-
-  <button
-    class="back-button"
-    onclick="goHome()"
-  >
-    ← 戻る / Back
-  </button>
-
-</div>
-
-
-
-<!-- =========================
-     ドリンク
-     ========================= -->
-
-<div
-  id="drinkPage"
-  class="menu-page"
->
-
-  <div class="jp">
-
-    <h2>ドリンクメニュー</h2>
-
-    <div class="category">
-      ドリンク
+    <div class="shop-name">
+      SUSHI TOIRO
     </div>
 
-    <div class="item">
-      ドリンクメニュー準備中
+    <div class="gold-line"></div>
+
+    <div class="language">
+
+      <button
+        id="jaButton"
+        class="active"
+        onclick="setLanguage('ja')"
+        aria-pressed="true"
+      >
+        日本語
+      </button>
+
+      <button
+        id="enButton"
+        onclick="setLanguage('en')"
+        aria-pressed="false"
+      >
+        English
+      </button>
+
     </div>
 
-  </div>
+  </header>
 
 
-  <div
-    class="en"
-    style="display:none;"
-  >
+  <!-- =========================
+       メニュー本体
+       ========================= -->
 
-    <h2>Drinks</h2>
+  <main class="container">
 
-    <div class="category">
-      Drinks
+    <div class="panel">
+
+
+      <!-- 最初のコース選択画面 -->
+
+      <div id="home">
+
+        <h1 id="homeTitle">
+          お品書き
+        </h1>
+
+        <button
+          class="course-button"
+          data-course="9900"
+          onclick="showCourse('9900')"
+        >
+          9,900円コース
+        </button>
+
+        <button
+          class="course-button"
+          data-course="13900"
+          onclick="showCourse('13900')"
+        >
+          13,900円コース
+        </button>
+
+        <button
+          class="course-button"
+          data-course="16900"
+          onclick="showCourse('16900')"
+        >
+          16,900円コース
+        </button>
+
+      </div>
+
+
+      <!-- 選択したコースの表示画面 -->
+
+      <div id="coursePage" hidden>
+
+        <div id="courseContent"></div>
+
+        <button
+          id="backButton"
+          class="back-button"
+          onclick="goHome()"
+        >
+          ← 戻る
+        </button>
+
+      </div>
+
+
     </div>
 
-    <div class="item">
-      Drink menu coming soon
-    </div>
 
-  </div>
+    <footer class="footer">
+      SUSHI TOIRO
+    </footer>
 
+  </main>
 
-  <button
-    class="back-button"
-    onclick="goHome()"
-  >
-    ← 戻る / Back
-  </button>
 
-</div>
 
+  <script>
+
+    /* =========================
+       基本設定
+       ========================= */
+
+    let currentLanguage = "ja";
+    let currentCourse = null;
+
+    // 月が変わったらここを変更
+    const menuMonth = {
+      ja: "9月のコース",
+      en: "September Course"
+    };
+
+
+    /* =========================
+       料理名（日英）
+       ========================= */
+
+    const dishes = {
+
+      crab: {
+        ja: "蟹と菊花の煮浸し",
+        en: "Simmered Crab and Chrysanthemum"
+      },
 
-</div>
+      fig: {
+        ja: "イチヂク胡麻クリーム和え",
+        en: "Fig with Sesame Cream"
+      },
 
-</main>
+      shirako: {
+        ja: "白子の木の子餡掛けイクラのせ",
+        en: "Steamed Egg Custard with Shirako, Mushroom Sauce and Salmon Roe"
+      },
 
+      squid: {
+        ja: "イカ（炭塩）",
+        en: "Squid (Charcoal Salt)"
+      },
 
+      bonito: {
+        ja: "カツオ（高等葱ソース）",
+        en: "Bonito (Green Onion Sauce)"
+      },
 
-<!-- =========================
-     店舗情報
-     ========================= -->
+      shellfish: {
+        ja: "貝（塩スダチ）",
+        en: "Shellfish (Salt and Sudachi)"
+      },
 
-<footer class="shop-info">
+      shrimp: {
+        ja: "生エビ（エビパウダー）",
+        en: "Fresh Shrimp (Shrimp Powder)"
+      },
+
+      shima: {
+        ja: "島鮨",
+        en: "Island-style Sushi"
+      },
+
+      salmon: {
+        ja: "秋鮭幽庵焼き",
+        en: "Yuan-style Grilled Autumn Salmon"
+      },
+
+      akami: {
+        ja: "赤身",
+        en: "Lean Tuna"
+      },
+
+      chutoro: {
+        ja: "中トロ",
+        en: "Medium Fatty Tuna"
+      },
+
+      whitefish: {
+        ja: "白身の昆布〆",
+        en: "Kelp-cured White Fish"
+      },
+
+      kohada: {
+        ja: "コハダ",
+        en: "Gizzard Shad"
+      },
+
+      torotaku: {
+        ja: "トロタクおはぎ",
+        en: "Toro-Taku Ohagi"
+      },
+
+      ikura: {
+        ja: "イクラの小丼（ウニ添え）",
+        en: "Mini Salmon Roe Rice Bowl with Sea Urchin"
+      },
+
+      tamago: {
+        ja: "玉子",
+        en: "Japanese Omelet"
+      },
+
+      uni: {
+        ja: "ウニ食べ比べ",
+        en: "Sea Urchin Tasting"
+      },
+
+      hamo: {
+        ja: "鱧の天麩羅",
+        en: "Conger Pike Tempura"
+      },
+
+      anago: {
+        ja: "穴子",
+        en: "Conger Eel"
+      },
+
+      abalone: {
+        ja: "鮑の酒蒸し 肝ソース",
+        en: "Sake-steamed Abalone with Liver Sauce"
+      }
+
+    };
+
+
+    /* =========================
+       コース構成
+       ========================= */
+
+    const courses = {
+
+
+      /* =====================
+         9,900円
+         ===================== */
+
+      "9900": [
+
+        {
+          ja: "強肴",
+          en: "Seasonal Dishes",
+          items: [
+            "crab",
+            "fig"
+          ]
+        },
+
+        {
+          ja: "茶碗蒸し",
+          en: "Steamed Egg Custard",
+          items: [
+            "shirako"
+          ]
+        },
+
+        {
+          ja: "鮨",
+          en: "Sushi",
+          items: [
+            "squid",
+            "bonito",
+            "shellfish",
+            "shrimp",
+            "shima"
+          ]
+        },
+
+        {
+          ja: "焼き物",
+          en: "Grilled Dish",
+          items: [
+            "salmon"
+          ]
+        },
+
+        {
+          ja: "鮨",
+          en: "Sushi",
+          items: [
+            "akami",
+            "chutoro",
+            "whitefish",
+            "kohada",
+            "torotaku",
+            "ikura",
+            "tamago"
+          ]
+        },
+
+        {
+          ja: "お椀",
+          en: "Soup",
+          items: []
+        },
+
+        {
+          ja: "甘味",
+          en: "Dessert",
+          items: []
+        }
+
+      ],
+
+
+
+      /* =====================
+         13,900円
+         ===================== */
+
+      "13900": [
+
+        {
+          ja: "ウニ食べ比べ",
+          en: "Sea Urchin Tasting",
+          items: []
+        },
+
+        {
+          ja: "強肴",
+          en: "Seasonal Dishes",
+          items: [
+            "crab",
+            "fig"
+          ]
+        },
+
+        {
+          ja: "茶碗蒸し",
+          en: "Steamed Egg Custard",
+          items: [
+            "shirako"
+          ]
+        },
+
+        {
+          ja: "鮨",
+          en: "Sushi",
+          items: [
+            "squid",
+            "bonito",
+            "shellfish",
+            "shrimp",
+            "shima"
+          ]
+        },
+
+        {
+          ja: "焼き物",
+          en: "Grilled Dish",
+          items: [
+            "salmon"
+          ]
+        },
+
+        {
+          ja: "揚げ物",
+          en: "Tempura",
+          items: [
+            "hamo"
+          ]
+        },
+
+        {
+          ja: "香の物",
+          en: "Pickles",
+          items: []
+        },
+
+        {
+          ja: "鮨",
+          en: "Sushi",
+          items: [
+            "akami",
+            "chutoro",
+            "whitefish",
+            "kohada",
+            "torotaku",
+            "anago",
+            "tamago"
+          ]
+        },
+
+        {
+          ja: "お椀",
+          en: "Soup",
+          items: []
+        },
+
+        {
+          ja: "甘味",
+          en: "Dessert",
+          items: []
+        }
+
+      ],
+
+
+
+      /* =====================
+         16,900円
+         ===================== */
+
+      "16900": [
+
+        {
+          ja: "ウニ食べ比べ",
+          en: "Sea Urchin Tasting",
+          items: []
+        },
+
+        {
+          ja: "強肴",
+          en: "Seasonal Dishes",
+          items: [
+            "crab",
+            "fig"
+          ]
+        },
+
+        {
+          ja: "茶碗蒸し",
+          en: "Steamed Egg Custard",
+          items: [
+            "shirako"
+          ]
+        },
+
+        {
+          ja: "鮨",
+          en: "Sushi",
+          items: [
+            "squid",
+            "bonito",
+            "shellfish",
+            "shrimp",
+            "shima"
+          ]
+        },
+
+        {
+          ja: "焼き物",
+          en: "Grilled Dish",
+          items: [
+            "salmon"
+          ]
+        },
+
+        {
+          ja: "揚げ物",
+          en: "Tempura",
+          items: [
+            "hamo"
+          ]
+        },
+
+        {
+          ja: "鮑の酒蒸し 肝ソース",
+          en: "Sake-steamed Abalone with Liver Sauce",
+          items: []
+        },
+
+        {
+          ja: "香の物",
+          en: "Pickles",
+          items: []
+        },
+
+        {
+          ja: "鮨",
+          en: "Sushi",
+          items: [
+            "akami",
+            "chutoro",
+            "whitefish",
+            "kohada",
+            "torotaku",
+            "anago",
+            "tamago"
+          ]
+        },
+
+        {
+          ja: "お椀",
+          en: "Soup",
+          items: []
+        },
+
+        {
+          ja: "甘味",
+          en: "Dessert",
+          items: []
+        }
+
+      ]
+
+    };
+
+
+
+    /* =========================
+       日本語・英語切り替え
+       ========================= */
+
+    function setLanguage(language) {
+
+      currentLanguage = language;
+
+      document.documentElement.lang =
+        language === "ja" ? "ja" : "en";
+
+
+      // 選択中の言語を表示
+
+      document
+        .getElementById("jaButton")
+        .classList.toggle(
+          "active",
+          language === "ja"
+        );
+
+      document
+        .getElementById("enButton")
+        .classList.toggle(
+          "active",
+          language === "en"
+        );
+
+      document
+        .getElementById("jaButton")
+        .setAttribute(
+          "aria-pressed",
+          language === "ja"
+        );
+
+      document
+        .getElementById("enButton")
+        .setAttribute(
+          "aria-pressed",
+          language === "en"
+        );
+
+
+      // 最初の画面の文字を変更
+
+      document
+        .getElementById("homeTitle")
+        .textContent =
+          language === "ja"
+          ? "お品書き"
+          : "Menu";
+
+
+      // 価格選択ボタン
+
+      document
+        .querySelectorAll(".course-button")
+        .forEach(function(button) {
+
+          const price = Number(
+            button.dataset.course
+          ).toLocaleString("ja-JP");
+
+          button.textContent =
+            language === "ja"
+            ? price + "円コース"
+            : "¥" + price + " Course";
+
+        });
+
+
+      // 戻るボタン
+
+      document
+        .getElementById("backButton")
+        .textContent =
+          language === "ja"
+          ? "← コース選択に戻る"
+          : "← Back to Menu";
+
 
-<div class="shop-info-inner">
+      // コースを表示中なら更新
 
-<img
-  src="logo.png"
-  alt="鮨 といろ"
-  class="shop-info-logo"
->
+      if (currentCourse !== null) {
+        renderCourse(currentCourse);
+      }
 
+    }
 
-<div class="jp">
 
-<div class="shop-info-title">
-鮨 といろ
-</div>
 
+    /* =========================
+       コースを選択
+       ========================= */
 
-<div class="shop-info-row">
+    function showCourse(courseId) {
 
-<div class="shop-info-label">
-営業時間
-</div>
+      currentCourse = courseId;
 
-未設定
+      document
+        .getElementById("home")
+        .hidden = true;
 
-</div>
+      document
+        .getElementById("coursePage")
+        .hidden = false;
 
+      renderCourse(courseId);
 
-<div class="shop-info-row">
+      window.scrollTo(0, 0);
 
-<div class="shop-info-label">
-住所
-</div>
+    }
 
-未設定
 
-</div>
 
+    /* =========================
+       コース料理一覧を表示
+       ========================= */
 
-<div class="shop-info-row">
+    function renderCourse(courseId) {
 
-<div class="shop-info-label">
-定休日
-</div>
+      const content = document.getElementById(
+        "courseContent"
+      );
 
-未設定
+      content.replaceChildren();
 
-</div>
 
+      // コースタイトル
 
-<a
-  href="https://www.instagram.com/"
-  target="_blank"
-  class="instagram-button"
->
-Instagram
-</a>
+      const title = document.createElement("h2");
 
-</div>
+      title.textContent =
+        menuMonth[currentLanguage];
 
+      content.appendChild(title);
 
 
-<div
-  class="en"
-  style="display:none;"
->
+      // 価格
 
-<div class="shop-info-title">
-SUSHI TOIRO
-</div>
+      const price = document.createElement("div");
 
+      price.className = "course-price";
 
-<div class="shop-info-row">
+      const formattedPrice = Number(
+        courseId
+      ).toLocaleString("ja-JP");
 
-<div class="shop-info-label">
-Opening Hours
-</div>
+      price.textContent =
+        currentLanguage === "ja"
+        ? formattedPrice + "円"
+        : "¥" + formattedPrice;
 
-Not set
+      content.appendChild(price);
 
-</div>
 
+      // 各カテゴリーと料理名
 
-<div class="shop-info-row">
+      courses[courseId].forEach(
+        function(sectionData) {
 
-<div class="shop-info-label">
-Address
-</div>
+          const section =
+            document.createElement("section");
 
-Not set
+          section.className = "section";
 
-</div>
 
+          // カテゴリー名
 
-<div class="shop-info-row">
+          const category =
+            document.createElement("h3");
 
-<div class="shop-info-label">
-Closed
-</div>
+          category.className = "category";
 
-Not set
+          category.textContent =
+            sectionData[currentLanguage];
 
-</div>
+          section.appendChild(category);
 
 
-<a
-  href="https://www.instagram.com/"
-  target="_blank"
-  class="instagram-button"
->
-Instagram
-</a>
+          // 料理リスト
 
-</div>
+          if (sectionData.items.length > 0) {
 
-</div>
+            const list =
+              document.createElement("ul");
 
-</footer>
+            list.className = "dish-list";
 
 
+            sectionData.items.forEach(
+              function(dishKey) {
 
-<!-- =========================
-     料理詳細
-     ========================= -->
+                const item =
+                  document.createElement("li");
 
-<div
-  id="dishModal"
-  class="modal"
-  onclick="closeModalOutside(event)"
->
+                item.textContent =
+                  dishes[dishKey][currentLanguage];
 
-<div class="modal-card">
+                list.appendChild(item);
 
-<button
-  class="modal-close"
-  onclick="closeDishModal()"
->
-×
-</button>
+              }
+            );
 
 
-<h3
-  id="modalTitle"
-  class="modal-title"
-></h3>
+            section.appendChild(list);
 
+          }
 
-<div class="detail-block">
 
-<div
-  id="descriptionLabel"
-  class="detail-label"
->
-料理について
-</div>
+          content.appendChild(section);
 
-<div
-  id="modalDescription"
-  class="detail-text"
-></div>
+        }
+      );
 
-</div>
+    }
 
 
-<div class="detail-block">
 
-<div
-  id="ingredientsLabel"
-  class="detail-label"
->
-主な食材
-</div>
+    /* =========================
+       最初の画面に戻る
+       ========================= */
 
-<div
-  id="modalIngredients"
-  class="detail-text"
-></div>
+    function goHome() {
 
-</div>
+      currentCourse = null;
 
+      document
+        .getElementById("coursePage")
+        .hidden = true;
 
-<div class="allergy-box">
+      document
+        .getElementById("home")
+        .hidden = false;
 
-<div
-  id="allergyLabel"
-  class="detail-label"
->
-想定アレルゲン
-</div>
+      window.scrollTo(0, 0);
 
-<div
-  id="modalAllergy"
-  class="detail-text"
-></div>
+    }
 
-<div
-  id="allergyNote"
-  class="allergy-note"
-></div>
 
-</div>
+    /* =========================
+       初期化
+       ========================= */
 
-</div>
+    setLanguage("ja");
 
-</div>
-
-
-
-<script>
-
-
-let currentLanguage = "jp";
-
-let currentCourse = null;
-
-
-
-/* =========================
-   料理情報
-   ========================= */
-
-const dishes = {
-
-
-crab: {
-
-jp: {
-title: "蟹と菊花の煮浸し",
-description:
-"蟹の旨味と菊花の香りを、やさしい出汁とともに楽しむ季節の一品です。",
-ingredients:
-"蟹、菊花、出汁、調味料など",
-allergens:
-"かに、大豆、小麦などの可能性があります"
-},
-
-en: {
-title: "Simmered Crab and Chrysanthemum",
-description:
-"A seasonal dish combining delicate crab with fragrant chrysanthemum in a light dashi broth.",
-ingredients:
-"Crab, chrysanthemum, dashi and seasonings",
-allergens:
-"May contain crab, soy and wheat"
-}
-
-},
-
-
-
-fig: {
-
-jp: {
-title: "イチヂク胡麻クリーム和え",
-description:
-"甘みのあるイチヂクを、香ばしい胡麻クリームで和えた一品です。",
-ingredients:
-"イチヂク、胡麻、調味料など",
-allergens:
-"ごま、大豆などの可能性があります"
-},
-
-en: {
-title: "Fig with Sesame Cream",
-description:
-"Sweet fig served with a rich and aromatic sesame cream.",
-ingredients:
-"Fig, sesame and seasonings",
-allergens:
-"May contain sesame and soy"
-}
-
-},
-
-
-
-shirako: {
-
-jp: {
-title:
-"白子の木の子餡掛けイクラのせ",
-description:
-"なめらかな茶碗蒸しに白子を合わせ、木の子餡とイクラを添えた一品です。",
-ingredients:
-"卵、白子、木の子、イクラ、出汁など",
-allergens:
-"卵、魚卵、大豆、小麦などの可能性があります"
-},
-
-en: {
-title:
-"Steamed Egg Custard with Shirako, Mushroom Sauce and Salmon Roe",
-description:
-"Savory steamed egg custard served with shirako, mushroom sauce and salmon roe.",
-ingredients:
-"Egg, shirako, mushrooms, salmon roe and dashi",
-allergens:
-"May contain egg, fish roe, soy and wheat"
-}
-
-},
-
-
-
-squid: {
-
-jp: {
-title: "イカ（炭塩）",
-description:
-"イカの甘みと食感を生かし、炭塩で香ばしく仕上げた握りです。",
-ingredients:
-"イカ、酢飯、炭塩など",
-allergens:
-"いか"
-},
-
-en: {
-title: "Squid (Charcoal Salt)",
-description:
-"Squid nigiri finished with aromatic charcoal salt.",
-ingredients:
-"Squid, sushi rice and charcoal salt",
-allergens:
-"Contains squid"
-}
-
-},
-
-
-
-bonito: {
-
-jp: {
-title:
-"カツオ（高等葱ソース）",
-description:
-"旨味の強いカツオに葱を使った特製ソースを合わせた握りです。",
-ingredients:
-"カツオ、酢飯、葱、調味料など",
-allergens:
-"大豆、小麦などの可能性があります"
-},
-
-en: {
-title:
-"Bonito (Green Onion Sauce)",
-description:
-"Bonito nigiri served with a house-made green onion sauce.",
-ingredients:
-"Bonito, sushi rice, green onion and seasonings",
-allergens:
-"May contain soy and wheat"
-}
-
-},
-
-
-
-shellfish: {
-
-jp: {
-title: "貝（塩スダチ）",
-description:
-"貝の食感と旨味を、塩とスダチの爽やかな香りで楽しむ握りです。",
-ingredients:
-"貝、酢飯、塩、スダチなど",
-allergens:
-"貝類"
-},
-
-en: {
-title:
-"Shellfish (Salt and Sudachi)",
-description:
-"Shellfish nigiri seasoned with salt and refreshing sudachi citrus.",
-ingredients:
-"Shellfish, sushi rice, salt and sudachi",
-allergens:
-"Contains shellfish"
-}
-
-},
-
-
-
-shrimp: {
-
-jp: {
-title:
-"生エビ（エビパウダー）",
-description:
-"生エビの甘みを生かし、エビの旨味を凝縮したパウダーを添えています。",
-ingredients:
-"エビ、酢飯、エビパウダーなど",
-allergens:
-"えび"
-},
-
-en: {
-title:
-"Fresh Shrimp (Shrimp Powder)",
-description:
-"Fresh shrimp nigiri finished with shrimp powder for an extra layer of umami.",
-ingredients:
-"Shrimp, sushi rice and shrimp powder",
-allergens:
-"Contains shrimp"
-}
-
-},
-
-
-
-shima: {
-
-jp: {
-title:
-"島鮨",
-description:
-"島鮨のスタイルを取り入れ、魚の旨味を楽しめるよう仕立てた一品です。",
-ingredients:
-"魚、酢飯、調味料など",
-allergens:
-"大豆、小麦などの可能性があります"
-},
-
-en: {
-title:
-"Island-style Sushi",
-description:
-"Sushi inspired by traditional island-style preparation.",
-ingredients:
-"Fish, sushi rice and seasonings",
-allergens:
-"May contain soy and wheat"
-}
-
-},
-
-
-
-salmon: {
-
-jp: {
-title:
-"秋鮭幽庵焼き",
-description:
-"秋鮭を幽庵地に漬け込み、柑橘の香りとともに香ばしく焼き上げた一品です。",
-ingredients:
-"秋鮭、醤油、酒、みりん、柑橘など",
-allergens:
-"さけ、大豆、小麦などの可能性があります"
-},
-
-en: {
-title:
-"Yuan-style Grilled Autumn Salmon",
-description:
-"Autumn salmon marinated in a traditional Japanese yuan-style sauce and grilled.",
-ingredients:
-"Salmon, soy sauce, sake, mirin and citrus",
-allergens:
-"May contain salmon, soy and wheat"
-}
-
-},
-
-
-
-akami: {
-
-jp: {
-title: "赤身",
-description:
-"鮪本来の旨味を楽しめる赤身の握りです。",
-ingredients:
-"鮪、酢飯など",
-allergens:
-"魚類"
-},
-
-en: {
-title:
-"Lean Tuna",
-description:
-"Lean tuna nigiri with a clean flavor and rich natural umami.",
-ingredients:
-"Tuna and sushi rice",
-allergens:
-"Contains fish"
-}
-
-},
-
-
-
-chutoro: {
-
-jp: {
-title:
-"中トロ",
-description:
-"赤身の旨味と脂の甘みをバランス良く楽しめる中トロの握りです。",
-ingredients:
-"鮪、酢飯など",
-allergens:
-"魚類"
-},
-
-en: {
-title:
-"Medium Fatty Tuna",
-description:
-"Medium fatty tuna nigiri balancing rich tuna flavor with delicate marbling.",
-ingredients:
-"Tuna and sushi rice",
-allergens:
-"Contains fish"
-}
-
-},
-
-
-
-whitefish: {
-
-jp: {
-title:
-"白身の昆布〆",
-description:
-"白身魚を昆布で締め、昆布の旨味を移して味わいを深めた握りです。",
-ingredients:
-"白身魚、昆布、酢飯など",
-allergens:
-"魚類"
-},
-
-en: {
-title:
-"Kelp-cured White Fish",
-description:
-"White fish cured with kelp to enhance its natural sweetness and umami.",
-ingredients:
-"White fish, kelp and sushi rice",
-allergens:
-"Contains fish"
-}
-
-},
-
-
-
-kohada: {
-
-jp: {
-title:
-"コハダ",
-description:
-"酢と塩で丁寧に締めた、江戸前鮨を代表するコハダの握りです。",
-ingredients:
-"コハダ、酢飯、酢、塩など",
-allergens:
-"魚類"
-},
-
-en: {
-title:
-"Gizzard Shad",
-description:
-"Traditional Edomae-style gizzard shad cured with salt and vinegar.",
-ingredients:
-"Gizzard shad, sushi rice, vinegar and salt",
-allergens:
-"Contains fish"
-}
-
-},
-
-
-
-torotaku: {
-
-jp: {
-title:
-"トロタクおはぎ",
-description:
-"脂ののった鮪とたくあんを合わせ、おはぎのように仕立てた一品です。",
-ingredients:
-"鮪、たくあん、酢飯など",
-allergens:
-"魚類、大豆などの可能性があります"
-},
-
-en: {
-title:
-"Toro-Taku Ohagi",
-description:
-"Fatty tuna and crunchy pickled daikon combined in an ohagi-inspired presentation.",
-ingredients:
-"Fatty tuna, pickled daikon and sushi rice",
-allergens:
-"May contain fish and soy"
-}
-
-},
-
-
-
-ikura: {
-
-jp: {
-title:
-"イクラの小丼（ウニ添え）",
-description:
-"イクラをたっぷりのせた小丼に、濃厚なウニを添えた一品です。",
-ingredients:
-"イクラ、ウニ、酢飯など",
-allergens:
-"魚卵、大豆、小麦などの可能性があります"
-},
-
-en: {
-title:
-"Mini Salmon Roe Rice Bowl with Sea Urchin",
-description:
-"A small sushi rice bowl topped with salmon roe and sea urchin.",
-ingredients:
-"Salmon roe, sea urchin and sushi rice",
-allergens:
-"May contain fish roe, soy and wheat"
-}
-
-},
-
-
-
-tamago: {
-
-jp: {
-title:
-"玉子",
-description:
-"コースの終盤にお楽しみいただく、やさしい甘みの玉子です。",
-ingredients:
-"卵、調味料など",
-allergens:
-"卵、大豆、小麦などの可能性があります"
-},
-
-en: {
-title:
-"Japanese Omelet",
-description:
-"A gently sweet Japanese-style omelet served toward the end of the course.",
-ingredients:
-"Egg and seasonings",
-allergens:
-"May contain egg, soy and wheat"
-}
-
-},
-
-
-
-uni: {
-
-jp: {
-title:
-"ウニ食べ比べ",
-description:
-"種類や産地の異なるウニを食べ比べ、それぞれの甘みや香りの違いを楽しむ一品です。",
-ingredients:
-"ウニなど",
-allergens:
-"ウニ"
-},
-
-en: {
-title:
-"Sea Urchin Tasting",
-description:
-"A tasting of different varieties of sea urchin, allowing you to compare their sweetness and aroma.",
-ingredients:
-"Sea urchin",
-allergens:
-"Contains sea urchin"
-}
-
-},
-
-
-
-hamo: {
-
-jp: {
-title:
-"鱧の天麩羅",
-description:
-"鱧をふっくらと仕上げ、軽い衣で揚げた季節の天麩羅です。",
-ingredients:
-"鱧、小麦粉、卵、揚げ油など",
-allergens:
-"小麦、卵などの可能性があります"
-},
-
-en: {
-title:
-"Conger Pike Tempura",
-description:
-"Seasonal conger pike fried in a delicate light tempura batter.",
-ingredients:
-"Conger pike, flour, egg and frying oil",
-allergens:
-"May contain wheat and egg"
-}
-
-},
-
-
-
-anago: {
-
-jp: {
-title:
-"穴子",
-description:
-"やわらかく仕上げた穴子に煮詰めを合わせた握りです。",
-ingredients:
-"穴子、酢飯、煮詰めなど",
-allergens:
-"魚類、大豆、小麦などの可能性があります"
-},
-
-en: {
-title:
-"Conger Eel",
-description:
-"Tender conger eel nigiri finished with a traditional sweet-savory sauce.",
-ingredients:
-"Conger eel, sushi rice and sauce",
-allergens:
-"May contain fish, soy and wheat"
-}
-
-},
-
-
-
-abalone: {
-
-jp: {
-title:
-"鮑の酒蒸し 肝ソース",
-description:
-"鮑を酒蒸しにしてやわらかく仕上げ、濃厚な肝のソースを合わせた一品です。",
-ingredients:
-"鮑、酒、鮑の肝、調味料など",
-allergens:
-"あわび、大豆、小麦などの可能性があります"
-},
-
-en: {
-title:
-"Sake-steamed Abalone with Liver Sauce",
-description:
-"Tender sake-steamed abalone served with a rich sauce made from its liver.",
-ingredients:
-"Abalone, sake, abalone liver and seasonings",
-allergens:
-"May contain abalone, soy and wheat"
-}
-
-}
-
-};
-
-
-
-/* =========================
-   コース情報
-   ========================= */
-
-const courses = {
-
-
-"9900": {
-
-priceJP: "9,900円",
-priceEN: "¥9,900",
-
-specials: [],
-
-sections: [
-
-{
-jp: "強肴",
-en: "Appetizers",
-items: ["crab", "fig"]
-},
-
-{
-jp: "茶碗蒸し",
-en: "Chawanmushi",
-items: ["shirako"]
-},
-
-{
-jp: "鮨",
-en: "Sushi",
-items: [
-"squid",
-"bonito",
-"shellfish",
-"shrimp",
-"shima"
-]
-},
-
-{
-jp: "焼き物",
-en: "Grilled Dish",
-items: ["salmon"]
-},
-
-{
-jp: "鮨",
-en: "Sushi",
-items: [
-"akami",
-"chutoro",
-"whitefish",
-"kohada",
-"torotaku",
-"ikura",
-"tamago"
-]
-},
-
-{
-jp: "お椀",
-en: "Soup",
-items: []
-},
-
-{
-jp: "甘味",
-en: "Dessert",
-items: []
-}
-
-]
-
-},
-
-
-
-"13900": {
-
-priceJP: "13,900円",
-priceEN: "¥13,900",
-
-specials: ["uni"],
-
-sections: [
-
-{
-jp: "強肴",
-en: "Appetizers",
-items: ["crab", "fig"]
-},
-
-{
-jp: "茶碗蒸し",
-en: "Chawanmushi",
-items: ["shirako"]
-},
-
-{
-jp: "鮨",
-en: "Sushi",
-items: [
-"squid",
-"bonito",
-"shellfish",
-"shrimp",
-"shima"
-]
-},
-
-{
-jp: "焼き物",
-en: "Grilled Dish",
-items: ["salmon"]
-},
-
-{
-jp: "揚げ物",
-en: "Tempura",
-items: ["hamo"]
-},
-
-{
-jp: "香の物",
-en: "Pickles",
-items: []
-},
-
-{
-jp: "鮨",
-en: "Sushi",
-items: [
-"akami",
-"chutoro",
-"whitefish",
-"kohada",
-"torotaku",
-"anago",
-"tamago"
-]
-},
-
-{
-jp: "お椀",
-en: "Soup",
-items: []
-},
-
-{
-jp: "甘味",
-en: "Dessert",
-items: []
-}
-
-]
-
-},
-
-
-
-"16900": {
-
-priceJP: "16,900円",
-priceEN: "¥16,900",
-
-specials: ["uni"],
-
-sections: [
-
-{
-jp: "強肴",
-en: "Appetizers",
-items: ["crab", "fig"]
-},
-
-{
-jp: "茶碗蒸し",
-en: "Chawanmushi",
-items: ["shirako"]
-},
-
-{
-jp: "鮨",
-en: "Sushi",
-items: [
-"squid",
-"bonito",
-"shellfish",
-"shrimp",
-"shima"
-]
-},
-
-{
-jp: "焼き物",
-en: "Grilled Dish",
-items: ["salmon"]
-},
-
-{
-jp: "揚げ物",
-en: "Tempura",
-items: ["hamo"]
-},
-
-{
-jp: "",
-en: "",
-items: ["abalone"],
-special: true
-},
-
-{
-jp: "香の物",
-en: "Pickles",
-items: []
-},
-
-{
-jp: "鮨",
-en: "Sushi",
-items: [
-"akami",
-"chutoro",
-"whitefish",
-"kohada",
-"torotaku",
-"anago",
-"tamago"
-]
-},
-
-{
-jp: "お椀",
-en: "Soup",
-items: []
-},
-
-{
-jp: "甘味",
-en: "Dessert",
-items: []
-}
-
-]
-
-}
-
-};
-
-
-
-/* =========================
-   言語変更
-   ========================= */
-
-function setLanguage(language) {
-
-currentLanguage = language;
-
-
-document
-.querySelectorAll(".jp")
-.forEach(function(element) {
-
-element.style.display =
-language === "jp"
-? "block"
-: "none";
-
-});
-
-
-document
-.querySelectorAll(".en")
-.forEach(function(element) {
-
-element.style.display =
-language === "en"
-? "block"
-: "none";
-
-});
-
-
-document
-.getElementById("jpButton")
-.classList.toggle(
-"active",
-language === "jp"
-);
-
-
-document
-.getElementById("enButton")
-.classList.toggle(
-"active",
-language === "en"
-);
-
-
-if (currentCourse) {
-
-renderCourse(currentCourse);
-
-}
-
-}
-
-
-
-/* =========================
-   コース表示
-   ========================= */
-
-function showCourse(courseId) {
-
-currentCourse = courseId;
-
-
-document
-.getElementById("home")
-.style.display = "none";
-
-
-document
-.getElementById("drinkPage")
-.style.display = "none";
-
-
-document
-.getElementById("coursePage")
-.style.display = "block";
-
-
-renderCourse(courseId);
-
-
-window.scrollTo({
-top: 0,
-behavior: "smooth"
-});
-
-}
-
-
-
-/* =========================
-   コース生成
-   ========================= */
-
-function renderCourse(courseId) {
-
-const course =
-courses[courseId];
-
-
-const english =
-currentLanguage === "en";
-
-
-let html = "";
-
-
-html +=
-"<h2>" +
-(english
-? "September Course"
-: "9月のコース") +
-"</h2>";
-
-
-html +=
-'<div class="price">' +
-(english
-? course.priceEN
-: course.priceJP) +
-"</div>";
-
-
-html +=
-'<div class="tap-hint">' +
-(english
-? "Tap a dish to view details"
-: "料理名をタップすると詳細をご覧いただけます") +
-"</div>";
-
-
-
-course.specials.forEach(function(key) {
-
-const dish =
-dishes[key][currentLanguage];
-
-
-html +=
-'<div class="special-item" onclick="openDishModal(\'' +
-key +
-'\')">' +
-dish.title +
-"</div>";
-
-});
-
-
-
-course.sections.forEach(function(section) {
-
-
-if (section.special) {
-
-section.items.forEach(function(key) {
-
-const dish =
-dishes[key][currentLanguage];
-
-
-html +=
-'<div class="special-item" onclick="openDishModal(\'' +
-key +
-'\')">' +
-dish.title +
-"</div>";
-
-});
-
-
-return;
-
-}
-
-
-
-html +=
-'<div class="category">' +
-(english
-? section.en
-: section.jp) +
-"</div>";
-
-
-
-section.items.forEach(function(key) {
-
-const dish =
-dishes[key][currentLanguage];
-
-
-html +=
-'<div class="item dish" onclick="openDishModal(\'' +
-key +
-'\')">' +
-dish.title +
-"</div>";
-
-});
-
-
-});
-
-
-document
-.getElementById("courseContent")
-.innerHTML = html;
-
-}
-
-
-
-/* =========================
-   ドリンク
-   ========================= */
-
-function showDrink() {
-
-currentCourse = null;
-
-
-document
-.getElementById("home")
-.style.display = "none";
-
-
-document
-.getElementById("coursePage")
-.style.display = "none";
-
-
-document
-.getElementById("drinkPage")
-.style.display = "block";
-
-
-setLanguage(currentLanguage);
-
-
-window.scrollTo({
-top: 0,
-behavior: "smooth"
-});
-
-}
-
-
-
-/* =========================
-   ホーム
-   ========================= */
-
-function goHome() {
-
-currentCourse = null;
-
-
-document
-.getElementById("coursePage")
-.style.display = "none";
-
-
-document
-.getElementById("drinkPage")
-.style.display = "none";
-
-
-document
-.getElementById("home")
-.style.display = "block";
-
-
-setLanguage(currentLanguage);
-
-
-window.scrollTo({
-top: 0,
-behavior: "smooth"
-});
-
-}
-
-
-
-/* =========================
-   詳細ポップアップ
-   ========================= */
-
-function openDishModal(dishKey) {
-
-const data =
-dishes[dishKey][currentLanguage];
-
-
-const english =
-currentLanguage === "en";
-
-
-document
-.getElementById("modalTitle")
-.textContent =
-data.title;
-
-
-document
-.getElementById("modalDescription")
-.textContent =
-data.description;
-
-
-document
-.getElementById("modalIngredients")
-.textContent =
-data.ingredients;
-
-
-document
-.getElementById("modalAllergy")
-.textContent =
-data.allergens;
-
-
-document
-.getElementById("descriptionLabel")
-.textContent =
-english
-? "About this dish"
-: "料理について";
-
-
-document
-.getElementById("ingredientsLabel")
-.textContent =
-english
-? "Main ingredients"
-: "主な食材";
-
-
-document
-.getElementById("allergyLabel")
-.textContent =
-english
-? "Possible allergens"
-: "想定アレルゲン";
-
-
-document
-.getElementById("allergyNote")
-.textContent =
-english
-? "This information is provisional. Please confirm ingredients and possible cross-contact with our staff before ordering."
-: "※こちらは仮の情報です。実際の使用食材・調味料・交差接触については、ご注文前にスタッフへご確認ください。";
-
-
-document
-.getElementById("dishModal")
-.classList.add("show");
-
-
-document.body.style.overflow =
-"hidden";
-
-}
-
-
-
-/* =========================
-   ポップアップを閉じる
-   ========================= */
-
-function closeDishModal() {
-
-document
-.getElementById("dishModal")
-.classList.remove("show");
-
-
-document.body.style.overflow =
-"";
-
-}
-
-
-
-function closeModalOutside(event) {
-
-if (
-event.target.id === "dishModal"
-) {
-
-closeDishModal();
-
-}
-
-}
-
-
-
-document.addEventListener(
-"keydown",
-function(event) {
-
-if (
-event.key === "Escape"
-) {
-
-closeDishModal();
-
-}
-
-}
-);
-
-
-</script>
+  </script>
 
 
 </body>
