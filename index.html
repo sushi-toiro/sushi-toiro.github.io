@@ -7,49 +7,50 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-  <title>鮨 といろ｜お品書き</title>
+  <title>鮨 といろ｜10月のお品書き</title>
 
   <style>
-
-    /* =========================
-       全体設定
-       ========================= */
 
     * {
       box-sizing: border-box;
     }
 
     :root {
-      --background: #050814;
-      --gold: #d4af37;
-      --gold-dark: #8f7440;
+      --bg: #050817;
+      --panel: #0b1020;
+      --gold: #cdb075;
+      --line: rgba(205,176,117,.38);
       --text: #f8f2e8;
-      --subtext: #cfc2a5;
+      --muted: #c7bcaa;
+    }
+
+    [hidden] {
+      display: none !important;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
-      background: linear-gradient(
-        to bottom,
-        #050814,
-        #090d19,
-        #111827
-      );
+
+      background:
+        linear-gradient(
+          180deg,
+          #050817,
+          #12182a
+        );
+
       color: var(--text);
+
       font-family:
         "Yu Mincho",
         "Hiragino Mincho ProN",
+        "Noto Serif JP",
         serif;
     }
 
     button {
-      font-family: inherit;
+      font: inherit;
       cursor: pointer;
-    }
-
-    [hidden] {
-      display: none !important;
     }
 
 
@@ -60,47 +61,36 @@
     .header {
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 10;
 
-      width: 100%;
-
-      background: rgba(3, 6, 15, 0.97);
+      background: rgba(5,8,23,.97);
 
       border-bottom:
-        1px solid rgba(212, 175, 55, 0.4);
+        1px solid var(--line);
 
       backdrop-filter: blur(8px);
 
+      padding: 6px 12px 10px;
       text-align: center;
-      padding: 7px 12px 9px;
     }
 
     .logo {
       display: block;
-      width: 55px;
-      height: auto;
-      margin: 0 auto 4px;
+
+      width: 54px;
+      height: 54px;
+
+      object-fit: contain;
+
+      margin: 0 auto 2px;
     }
 
-    .shop-name {
-      font-size: 10px;
+    .brand {
       color: var(--gold);
-      letter-spacing: 3px;
-      margin-bottom: 7px;
-    }
+      letter-spacing: .24em;
 
-    .gold-line {
-      width: 100px;
-      height: 1px;
-
-      margin: 5px auto 9px;
-
-      background: linear-gradient(
-        to right,
-        transparent,
-        var(--gold),
-        transparent
-      );
+      font-size: 10px;
+      margin: 0 0 7px;
     }
 
 
@@ -108,163 +98,201 @@
        言語切り替え
        ========================= */
 
-    .language {
+    .langs {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .language button {
-      padding: 7px 19px;
+    .langs button {
+      padding: 6px 18px;
 
-      font-size: 13px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
 
       color: var(--text);
       background: transparent;
 
-      border: 1px solid var(--gold-dark);
-      border-radius: 30px;
-
-      transition: 0.2s;
+      font-size: 13px;
     }
 
-    .language button.active {
+    .langs button.active {
       background: var(--gold);
-      color: #050814;
-      border-color: var(--gold);
+      color: #050817;
     }
 
 
     /* =========================
-       メイン部分
+       ページ全体
        ========================= */
 
-    .container {
-      width: 100%;
-      max-width: 580px;
+    main {
+      max-width: 570px;
 
-      margin: 0 auto;
-      padding: 24px 16px 60px;
+      padding: 20px 16px 40px;
+      margin: auto;
     }
 
     .panel {
-      background: rgba(255, 255, 255, 0.035);
+      background: rgba(255,255,255,.035);
 
-      border:
-        1px solid rgba(212, 175, 55, 0.3);
+      border: 1px solid var(--line);
+      border-radius: 15px;
 
-      border-radius: 16px;
+      padding: 27px 19px 34px;
+    }
 
-      padding: 30px 20px;
-
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.25);
+    h1, h2 {
+      margin: 0;
+      text-align: center;
+      font-weight: normal;
     }
 
     h1 {
-      text-align: center;
-
-      font-size: 28px;
-      font-weight: normal;
-      letter-spacing: 5px;
-
-      margin: 0 0 32px;
+      font-size: 26px;
+      letter-spacing: .16em;
+      margin-bottom: 9px;
     }
 
     h2 {
+      font-size: 22px;
+      letter-spacing: .08em;
+    }
+
+    .subtitle {
+      margin: 0 0 26px;
+
+      color: var(--muted);
       text-align: center;
-
-      font-size: 24px;
-      font-weight: normal;
-      letter-spacing: 3px;
-
-      margin: 0 0 12px;
+      font-size: 13px;
     }
 
 
     /* =========================
-       コース選択ボタン
+       席・コース選択
        ========================= */
 
-    .course-button {
-      display: block;
+    .choices {
+      display: grid;
+      gap: 15px;
+      margin-top: 24px;
+    }
 
+    .choice {
       width: 100%;
 
-      padding: 24px 15px;
-      margin: 17px 0;
+      background: rgba(255,255,255,.035);
 
-      font-size: 20px;
-
-      color: var(--text);
-
-      background: rgba(255, 255, 255, 0.03);
-
-      border:
-        1px solid rgba(212, 175, 55, 0.55);
-
+      border: 1px solid var(--line);
       border-radius: 10px;
 
-      transition: 0.2s;
+      padding: 21px 13px;
+
+      color: var(--text);
+      font-size: 20px;
     }
 
-    .course-button:hover {
-      background: rgba(212, 175, 55, 0.1);
+    .choice:active,
+    .choice:hover {
+      background: rgba(205,176,117,.13);
     }
 
 
     /* =========================
-       コース料理一覧
+       料理一覧
        ========================= */
 
-    .course-price {
-      text-align: center;
-
+    .price {
       color: var(--gold);
+      font-size: 23px;
 
-      font-size: 22px;
-      letter-spacing: 1px;
-
-      margin-bottom: 35px;
-    }
-
-    .section {
-      margin-top: 35px;
-    }
-
-    .category {
       text-align: center;
-
-      color: var(--gold);
-
-      font-size: 20px;
-      font-weight: normal;
-      letter-spacing: 3px;
-
-      padding-bottom: 10px;
-      margin-bottom: 18px;
-
-      border-bottom:
-        1px solid rgba(212, 175, 55, 0.35);
+      margin: 10px 0 28px;
     }
 
-    .dish-list {
+    .menu {
       list-style: none;
-
       padding: 0;
       margin: 0;
     }
 
-    .dish-list li {
+    .menu li {
       text-align: center;
 
+      padding: 12px 3px;
+
       font-size: 17px;
+      line-height: 1.65;
+
+      border-bottom:
+        1px solid rgba(205,176,117,.16);
+    }
+
+
+    /* =========================
+       特別な案内
+       ========================= */
+
+    .note {
+      margin: 10px auto 0;
+      padding: 12px;
+
+      font-size: 13px;
+      color: var(--muted);
+
+      line-height: 1.8;
+      text-align: center;
+
+      border:
+        1px solid rgba(205,176,117,.28);
+
+      border-radius: 8px;
+    }
+
+
+    /* =========================
+       といろ巻きの中身
+       ========================= */
+
+    .roll {
+      margin-top: 32px;
+
+      padding: 16px 14px 20px;
+
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .roll h3 {
+      text-align: center;
+
+      color: var(--gold);
+
+      font-size: 18px;
+      font-weight: normal;
+
+      margin: 0 0 18px;
+    }
+
+    .roll h4 {
+      text-align: center;
+
+      color: var(--gold);
+
+      font-size: 15px;
+      font-weight: normal;
+
+      margin: 17px 0 9px;
+    }
+
+    .roll p {
+      text-align: center;
+
+      font-size: 15px;
       line-height: 1.9;
 
-      padding: 8px 4px;
-      margin-bottom: 6px;
-
-      color: var(--text);
+      margin: 0;
+      white-space: pre-line;
     }
 
 
@@ -272,24 +300,19 @@
        戻るボタン
        ========================= */
 
-    .back-button {
+    .back {
       display: block;
 
-      margin: 48px auto 0;
-
-      padding: 12px 30px;
-
-      font-size: 15px;
-
-      color: var(--text);
       background: transparent;
+      color: var(--text);
 
-      border: 1px solid var(--gold-dark);
-      border-radius: 30px;
-    }
+      border: 1px solid var(--gold);
+      border-radius: 999px;
 
-    .back-button:hover {
-      background: rgba(212, 175, 55, 0.1);
+      margin: 32px auto 0;
+      padding: 11px 23px;
+
+      font-size: 14px;
     }
 
 
@@ -300,12 +323,11 @@
     .footer {
       text-align: center;
 
-      margin-top: 45px;
+      color: var(--gold);
+      letter-spacing: .25em;
 
-      color: var(--gold-dark);
-
-      font-size: 11px;
-      letter-spacing: 3px;
+      font-size: 10px;
+      margin: 32px 0 0;
     }
 
 
@@ -313,83 +335,62 @@
        スマホ対応
        ========================= */
 
-    @media (max-width: 480px) {
-
-      .logo {
-        width: 50px;
-      }
-
-      .container {
-        padding: 20px 14px 45px;
-      }
+    @media(max-width: 480px) {
 
       .panel {
-        padding: 26px 15px;
+        padding: 24px 15px 29px;
       }
 
-      h1 {
-        font-size: 25px;
-      }
-
-      h2 {
-        font-size: 22px;
-      }
-
-      .category {
-        font-size: 19px;
-      }
-
-      .dish-list li {
+      .menu li {
         font-size: 16px;
       }
 
-      .course-button {
+      .choice {
         font-size: 19px;
+      }
+
+      h1 {
+        font-size: 24px;
       }
 
     }
 
   </style>
-
 </head>
 
 
 <body>
 
-
   <!-- =========================
-       上部ロゴ・言語切り替え
+       ロゴと日本語・英語切替
        ========================= -->
 
   <header class="header">
 
     <img
       src="logo.png"
-      alt="鮨 といろ"
+      alt="鮨 といろのロゴ"
       class="logo"
     >
 
-    <div class="shop-name">
+    <p class="brand">
       SUSHI TOIRO
-    </div>
+    </p>
 
-    <div class="gold-line"></div>
-
-    <div class="language">
+    <div class="langs">
 
       <button
-        id="jaButton"
-        class="active"
+        id="jaBtn"
+        type="button"
         onclick="setLanguage('ja')"
-        aria-pressed="true"
       >
         日本語
       </button>
 
       <button
-        id="enButton"
+        id="enBtn"
+        type="button"
         onclick="setLanguage('en')"
-        aria-pressed="false"
       >
         English
       </button>
@@ -399,73 +400,143 @@
   </header>
 
 
-  <!-- =========================
-       メニュー本体
-       ========================= -->
-
-  <main class="container">
+  <main>
 
     <div class="panel">
 
 
-      <!-- 最初のコース選択画面 -->
+      <!-- =====================
+           1. 席種選択画面
+           ===================== -->
 
-      <div id="home">
+      <section id="seatScreen">
 
-        <h1 id="homeTitle">
-          お品書き
-        </h1>
+        <h1 id="seatTitle"></h1>
+
+        <p
+          class="subtitle"
+          id="seatSub"
+        ></p>
+
+        <div class="choices">
+
+          <button
+            class="choice"
+            type="button"
+            id="counterBtn"
+            onclick="chooseSeat('counter')"
+          ></button>
+
+          <button
+            class="choice"
+            type="button"
+            id="tableBtn"
+            onclick="chooseSeat('table')"
+          ></button>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =====================
+           2. コース選択画面
+           ===================== -->
+
+      <section
+        id="courseScreen"
+        hidden
+      >
+
+        <h2 id="courseSelectTitle"></h2>
+
+        <p
+          class="subtitle"
+          id="courseSelectSub"
+        ></p>
+
+        <div
+          class="choices"
+          id="courseButtons"
+        ></div>
 
         <button
-          class="course-button"
-          data-course="9900"
-          onclick="showCourse('9900')"
+          class="back"
+          id="backToSeat"
+          type="button"
+          onclick="chooseSeat(null)"
+        ></button>
+
+      </section>
+
+
+
+      <!-- =====================
+           3. 料理一覧画面
+           ===================== -->
+
+      <section
+        id="detailScreen"
+        hidden
+      >
+
+        <h2 id="detailTitle"></h2>
+
+        <p
+          class="price"
+          id="detailPrice"
+        ></p>
+
+        <ul
+          class="menu"
+          id="dishList"
+        ></ul>
+
+
+        <!-- といろ巻き -->
+
+        <div
+          class="roll"
+          id="rollBox"
+          hidden
         >
-          9,900円コース
-        </button>
+
+          <h3 id="rollTitle"></h3>
+
+          <h4 id="rollTopTitle"></h4>
+
+          <p id="rollTop"></p>
+
+          <h4 id="rollInsideTitle"></h4>
+
+          <p id="rollInside"></p>
+
+        </div>
+
 
         <button
-          class="course-button"
-          data-course="13900"
-          onclick="showCourse('13900')"
-        >
-          13,900円コース
-        </button>
+          class="back"
+          id="backToCourse"
+          type="button"
+          onclick="chooseCourse(null)"
+        ></button>
 
         <button
-          class="course-button"
-          data-course="16900"
-          onclick="showCourse('16900')"
-        >
-          16,900円コース
-        </button>
+          class="back"
+          id="backToSeatFromDetail"
+          type="button"
+          onclick="chooseSeat(null)"
+        ></button>
 
-      </div>
-
-
-      <!-- 選択したコースの表示画面 -->
-
-      <div id="coursePage" hidden>
-
-        <div id="courseContent"></div>
-
-        <button
-          id="backButton"
-          class="back-button"
-          onclick="goHome()"
-        >
-          ← 戻る
-        </button>
-
-      </div>
-
+      </section>
 
     </div>
 
 
-    <footer class="footer">
+    <p class="footer">
       SUSHI TOIRO
-    </footer>
+    </p>
 
   </main>
 
@@ -474,395 +545,438 @@
   <script>
 
     /* =========================
-       基本設定
+       現在の状態
        ========================= */
 
-    let currentLanguage = "ja";
-    let currentCourse = null;
+    let language = 'ja';
 
-    // 月が変わったらここを変更
-    const menuMonth = {
-      ja: "9月のコース",
-      en: "September Course"
-    };
+    let seat = null;
+
+    let selectedCourse = null;
+
 
 
     /* =========================
-       料理名（日英）
+       画面の日本語・英語
        ========================= */
 
-    const dishes = {
+    const words = {
 
-      crab: {
-        ja: "蟹と菊花の煮浸し",
-        en: "Simmered Crab and Chrysanthemum"
+      ja: {
+
+        menu: '10月のお品書き',
+
+        chooseSeat: 'お席をお選びください',
+
+        counter: 'カウンター',
+
+        table: 'テーブル',
+
+        selectCourse: 'コースをお選びください',
+
+        course: 'コース',
+
+        backSeat: '← 席種選択に戻る',
+
+        backCourses: '← コース選択に戻る',
+
+        roll: 'といろ巻きの中身',
+
+        top: '上',
+
+        inside: '中',
+
+        uniNote:
+          '※ウニ食べ比べを追加されたお客様は、バフンウニまたはムラサキウニをお選びいただけます。'
+
       },
 
-      fig: {
-        ja: "イチヂク胡麻クリーム和え",
-        en: "Fig with Sesame Cream"
-      },
+      en: {
 
-      shirako: {
-        ja: "白子の木の子餡掛けイクラのせ",
-        en: "Steamed Egg Custard with Shirako, Mushroom Sauce and Salmon Roe"
-      },
+        menu: 'October Menu',
 
-      squid: {
-        ja: "イカ（炭塩）",
-        en: "Squid (Charcoal Salt)"
-      },
+        chooseSeat: 'Please select your seating',
 
-      bonito: {
-        ja: "カツオ（高等葱ソース）",
-        en: "Bonito (Green Onion Sauce)"
-      },
+        counter: 'Counter Seating',
 
-      shellfish: {
-        ja: "貝（塩スダチ）",
-        en: "Shellfish (Salt and Sudachi)"
-      },
+        table: 'Table Seating',
 
-      shrimp: {
-        ja: "生エビ（エビパウダー）",
-        en: "Fresh Shrimp (Shrimp Powder)"
-      },
+        selectCourse: 'Please select a course',
 
-      shima: {
-        ja: "島鮨",
-        en: "Island-style Sushi"
-      },
+        course: 'Course',
 
-      salmon: {
-        ja: "秋鮭幽庵焼き",
-        en: "Yuan-style Grilled Autumn Salmon"
-      },
+        backSeat: '← Back to Seating',
 
-      akami: {
-        ja: "赤身",
-        en: "Lean Tuna"
-      },
+        backCourses: '← Back to Courses',
 
-      chutoro: {
-        ja: "中トロ",
-        en: "Medium Fatty Tuna"
-      },
+        roll: 'Toiro Roll Ingredients',
 
-      whitefish: {
-        ja: "白身の昆布〆",
-        en: "Kelp-cured White Fish"
-      },
+        top: 'On Top',
 
-      kohada: {
-        ja: "コハダ",
-        en: "Gizzard Shad"
-      },
+        inside: 'Inside',
 
-      torotaku: {
-        ja: "トロタクおはぎ",
-        en: "Toro-Taku Ohagi"
-      },
+        uniNote:
+          'Guests who add the sea urchin tasting may choose Bafun or Murasaki sea urchin.'
 
-      ikura: {
-        ja: "イクラの小丼（ウニ添え）",
-        en: "Mini Salmon Roe Rice Bowl with Sea Urchin"
-      },
-
-      tamago: {
-        ja: "玉子",
-        en: "Japanese Omelet"
-      },
-
-      uni: {
-        ja: "ウニ食べ比べ",
-        en: "Sea Urchin Tasting"
-      },
-
-      hamo: {
-        ja: "鱧の天麩羅",
-        en: "Conger Pike Tempura"
-      },
-
-      anago: {
-        ja: "穴子",
-        en: "Conger Eel"
-      },
-
-      abalone: {
-        ja: "鮑の酒蒸し 肝ソース",
-        en: "Sake-steamed Abalone with Liver Sauce"
       }
 
     };
 
 
+
     /* =========================
-       コース構成
+       全料理名
+       日本語 / English
        ========================= */
 
-    const courses = {
+    const dishNames = {
+
+      uniTasting: [
+        'ウニ食べ比べ',
+        'Sea Urchin Tasting'
+      ],
+
+      eelCustard: [
+        '鰻とカボチャ餡の茶碗蒸し',
+        'Steamed Egg Custard with Eel and Pumpkin Sauce'
+      ],
+
+      squid: [
+        'イカ　墨塩',
+        'Squid (Squid Ink Salt)'
+      ],
+
+      kohada: [
+        'コハダ　おぼろ',
+        'Gizzard Shad (Oboro)'
+      ],
+
+      shrimp: [
+        '生エビ　エビパウダー',
+        'Fresh Shrimp (Shrimp Powder)'
+      ],
+
+      island: [
+        '島寿司　辛子',
+        'Island-style Sushi (Japanese Mustard)'
+      ],
+
+      arkClam: [
+        '赤貝',
+        'Ark Shell'
+      ],
+
+      fried: [
+        '揚げ物',
+        'Fried Dish'
+      ],
+
+      abalone: [
+        '鮑酒蒸し　肝ソース',
+        'Sake-steamed Abalone with Liver Sauce'
+      ],
+
+      kinmedai: [
+        '金目鯛の一口蒸し',
+        'Bite-sized Steamed Splendid Alfonsino'
+      ],
+
+      akami: [
+        '赤身',
+        'Lean Tuna'
+      ],
+
+      chutoro: [
+        '中トロ',
+        'Medium-fatty Tuna'
+      ],
+
+      torotaku: [
+        'トロタクおはぎ',
+        'Toro-Taku Ohagi'
+      ],
+
+      nodoguro: [
+        'ノドグロ炙り　塩スダチ',
+        'Seared Blackthroat Seaperch (Salt and Sudachi)'
+      ],
+
+      anago: [
+        '穴子',
+        'Conger Eel'
+      ],
+
+      tamago: [
+        '玉子',
+        'Japanese Omelet'
+      ],
+
+      soup: [
+        'お椀',
+        'Soup'
+      ],
+
+      dessert: [
+        '甘味',
+        'Dessert'
+      ],
+
+      seasonal: [
+        '強肴',
+        'Seasonal Special Dish'
+      ],
+
+      surfClam: [
+        '北寄貝炙り　塩スダチ',
+        'Seared Surf Clam (Salt and Sudachi)'
+      ],
+
+      whitefish: [
+        '白身昆布〆',
+        'Kelp-cured White Fish'
+      ],
+
+      uni: [
+        'ウニ',
+        'Sea Urchin'
+      ],
+
+      scallop: [
+        'ホタテ',
+        'Scallop'
+      ],
+
+      toiroRoll: [
+        'といろ巻き（中巻き1貫）',
+        'Toiro Roll (1 piece of medium sushi roll)'
+      ]
+
+    };
+
+
+
+    /* =========================
+       10月のコース構成
+       ========================= */
+
+    const menus = {
 
 
       /* =====================
-         9,900円
+         カウンターコース
          ===================== */
 
-      "9900": [
+      counter: {
 
-        {
-          ja: "強肴",
-          en: "Seasonal Dishes",
-          items: [
-            "crab",
-            "fig"
-          ]
-        },
 
-        {
-          ja: "茶碗蒸し",
-          en: "Steamed Egg Custard",
-          items: [
-            "shirako"
-          ]
-        },
+        /* 16,900円 */
 
-        {
-          ja: "鮨",
-          en: "Sushi",
-          items: [
-            "squid",
-            "bonito",
-            "shellfish",
-            "shrimp",
-            "shima"
-          ]
-        },
+        '16900': [
 
-        {
-          ja: "焼き物",
-          en: "Grilled Dish",
-          items: [
-            "salmon"
-          ]
-        },
+          'uniTasting',
 
-        {
-          ja: "鮨",
-          en: "Sushi",
-          items: [
-            "akami",
-            "chutoro",
-            "whitefish",
-            "kohada",
-            "torotaku",
-            "ikura",
-            "tamago"
-          ]
-        },
+          'eelCustard',
 
-        {
-          ja: "お椀",
-          en: "Soup",
-          items: []
-        },
+          'squid',
 
-        {
-          ja: "甘味",
-          en: "Dessert",
-          items: []
-        }
+          'kohada',
+
+          'shrimp',
+
+          'island',
+
+          'arkClam',
+
+          'fried',
+
+          'abalone',
+
+          'kinmedai',
+
+          'akami',
+
+          'chutoro',
+
+          'torotaku',
+
+          'nodoguro',
+
+          'anago',
+
+          'tamago',
+
+          'soup',
+
+          'dessert'
+
+        ],
+
+
+
+        /* 13,900円 */
+
+        '13900': [
+
+          'seasonal',
+
+          'eelCustard',
+
+          'squid',
+
+          'kohada',
+
+          'shrimp',
+
+          'island',
+
+          'surfClam',
+
+          'fried',
+
+          'kinmedai',
+
+          'akami',
+
+          'chutoro',
+
+          'torotaku',
+
+          'whitefish',
+
+          'anago',
+
+          'uni',
+
+          'tamago',
+
+          'soup',
+
+          'dessert'
+
+        ]
+
+      },
+
+
+
+      /* =====================
+         テーブルコース
+         ===================== */
+
+      table: {
+
+
+        /* 10,800円 */
+
+        '10800': [
+
+          'seasonal',
+
+          'squid',
+
+          'kohada',
+
+          'shrimp',
+
+          'island',
+
+          'surfClam',
+
+          'whitefish',
+
+          'eelCustard',
+
+          'akami',
+
+          'chutoro',
+
+          'torotaku',
+
+          'scallop',
+
+          'anago',
+
+          'toiroRoll',
+
+          'tamago',
+
+          'soup'
+
+        ],
+
+
+
+        /* 8,800円 */
+
+        '8800': [
+
+          'squid',
+
+          'kohada',
+
+          'shrimp',
+
+          'island',
+
+          'surfClam',
+
+          'whitefish',
+
+          'akami',
+
+          'chutoro',
+
+          'torotaku',
+
+          'scallop',
+
+          'anago',
+
+          'toiroRoll',
+
+          'tamago',
+
+          'soup'
+
+        ]
+
+      }
+
+    };
+
+
+
+    /* =========================
+       といろ巻きの中身
+       ========================= */
+
+    const rollIngredients = {
+
+      top: [
+
+        ['ウニ', 'Sea Urchin'],
+
+        ['イクラ', 'Salmon Roe'],
+
+        ['中落ち', 'Tuna Nakaochi']
 
       ],
 
+      inside: [
 
+        ['白身昆布締め', 'Kelp-cured White Fish'],
 
-      /* =====================
-         13,900円
-         ===================== */
+        ['光物', 'Silver-skinned Fish'],
 
-      "13900": [
+        ['ゴボウ醤油漬け', 'Soy-marinated Burdock Root'],
 
-        {
-          ja: "ウニ食べ比べ",
-          en: "Sea Urchin Tasting",
-          items: []
-        },
+        ['おぼろ', 'Oboro'],
 
-        {
-          ja: "強肴",
-          en: "Seasonal Dishes",
-          items: [
-            "crab",
-            "fig"
-          ]
-        },
+        ['沢庵', 'Pickled Daikon'],
 
-        {
-          ja: "茶碗蒸し",
-          en: "Steamed Egg Custard",
-          items: [
-            "shirako"
-          ]
-        },
+        ['カッパ', 'Cucumber'],
 
-        {
-          ja: "鮨",
-          en: "Sushi",
-          items: [
-            "squid",
-            "bonito",
-            "shellfish",
-            "shrimp",
-            "shima"
-          ]
-        },
-
-        {
-          ja: "焼き物",
-          en: "Grilled Dish",
-          items: [
-            "salmon"
-          ]
-        },
-
-        {
-          ja: "揚げ物",
-          en: "Tempura",
-          items: [
-            "hamo"
-          ]
-        },
-
-        {
-          ja: "香の物",
-          en: "Pickles",
-          items: []
-        },
-
-        {
-          ja: "鮨",
-          en: "Sushi",
-          items: [
-            "akami",
-            "chutoro",
-            "whitefish",
-            "kohada",
-            "torotaku",
-            "anago",
-            "tamago"
-          ]
-        },
-
-        {
-          ja: "お椀",
-          en: "Soup",
-          items: []
-        },
-
-        {
-          ja: "甘味",
-          en: "Dessert",
-          items: []
-        }
-
-      ],
-
-
-
-      /* =====================
-         16,900円
-         ===================== */
-
-      "16900": [
-
-        {
-          ja: "ウニ食べ比べ",
-          en: "Sea Urchin Tasting",
-          items: []
-        },
-
-        {
-          ja: "強肴",
-          en: "Seasonal Dishes",
-          items: [
-            "crab",
-            "fig"
-          ]
-        },
-
-        {
-          ja: "茶碗蒸し",
-          en: "Steamed Egg Custard",
-          items: [
-            "shirako"
-          ]
-        },
-
-        {
-          ja: "鮨",
-          en: "Sushi",
-          items: [
-            "squid",
-            "bonito",
-            "shellfish",
-            "shrimp",
-            "shima"
-          ]
-        },
-
-        {
-          ja: "焼き物",
-          en: "Grilled Dish",
-          items: [
-            "salmon"
-          ]
-        },
-
-        {
-          ja: "揚げ物",
-          en: "Tempura",
-          items: [
-            "hamo"
-          ]
-        },
-
-        {
-          ja: "鮑の酒蒸し 肝ソース",
-          en: "Sake-steamed Abalone with Liver Sauce",
-          items: []
-        },
-
-        {
-          ja: "香の物",
-          en: "Pickles",
-          items: []
-        },
-
-        {
-          ja: "鮨",
-          en: "Sushi",
-          items: [
-            "akami",
-            "chutoro",
-            "whitefish",
-            "kohada",
-            "torotaku",
-            "anago",
-            "tamago"
-          ]
-        },
-
-        {
-          ja: "お椀",
-          en: "Soup",
-          items: []
-        },
-
-        {
-          ja: "甘味",
-          en: "Dessert",
-          items: []
-        }
+        ['とびっ子', 'Flying Fish Roe']
 
       ]
 
@@ -871,91 +985,61 @@
 
 
     /* =========================
-       日本語・英語切り替え
+       文字・価格の処理
        ========================= */
 
-    function setLanguage(language) {
+    function word(key) {
 
-      currentLanguage = language;
+      return words[language][key];
 
-      document.documentElement.lang =
-        language === "ja" ? "ja" : "en";
-
-
-      // 選択中の言語を表示
-
-      document
-        .getElementById("jaButton")
-        .classList.toggle(
-          "active",
-          language === "ja"
-        );
-
-      document
-        .getElementById("enButton")
-        .classList.toggle(
-          "active",
-          language === "en"
-        );
-
-      document
-        .getElementById("jaButton")
-        .setAttribute(
-          "aria-pressed",
-          language === "ja"
-        );
-
-      document
-        .getElementById("enButton")
-        .setAttribute(
-          "aria-pressed",
-          language === "en"
-        );
+    }
 
 
-      // 最初の画面の文字を変更
+    function money(number) {
 
-      document
-        .getElementById("homeTitle")
-        .textContent =
-          language === "ja"
-          ? "お品書き"
-          : "Menu";
+      return '¥' +
+        Number(number).toLocaleString('ja-JP');
+
+    }
 
 
-      // 価格選択ボタン
+    function nameOf(id) {
 
-      document
-        .querySelectorAll(".course-button")
-        .forEach(function(button) {
+      return dishNames[id][
+        language === 'ja' ? 0 : 1
+      ];
 
-          const price = Number(
-            button.dataset.course
-          ).toLocaleString("ja-JP");
-
-          button.textContent =
-            language === "ja"
-            ? price + "円コース"
-            : "¥" + price + " Course";
-
-        });
+    }
 
 
-      // 戻るボタン
 
-      document
-        .getElementById("backButton")
-        .textContent =
-          language === "ja"
-          ? "← コース選択に戻る"
-          : "← Back to Menu";
+    /* =========================
+       言語を変更
+       ========================= */
+
+    function setLanguage(next) {
+
+      language = next;
+
+      render();
+
+    }
 
 
-      // コースを表示中なら更新
 
-      if (currentCourse !== null) {
-        renderCourse(currentCourse);
-      }
+    /* =========================
+       席種を選択
+       ========================= */
+
+    function chooseSeat(next) {
+
+      seat = next;
+
+      selectedCourse = null;
+
+      render();
+
+      window.scrollTo(0, 0);
 
     }
 
@@ -965,19 +1049,11 @@
        コースを選択
        ========================= */
 
-    function showCourse(courseId) {
+    function chooseCourse(next) {
 
-      currentCourse = courseId;
+      selectedCourse = next;
 
-      document
-        .getElementById("home")
-        .hidden = true;
-
-      document
-        .getElementById("coursePage")
-        .hidden = false;
-
-      renderCourse(courseId);
+      render();
 
       window.scrollTo(0, 0);
 
@@ -986,139 +1062,331 @@
 
 
     /* =========================
-       コース料理一覧を表示
+       ページの表示処理
        ========================= */
 
-    function renderCourse(courseId) {
-
-      const content = document.getElementById(
-        "courseContent"
-      );
-
-      content.replaceChildren();
+    function render() {
 
 
-      // コースタイトル
+      /* 言語切り替えボタン */
 
-      const title = document.createElement("h2");
+      document.documentElement.lang = language;
 
-      title.textContent =
-        menuMonth[currentLanguage];
+      document
+        .getElementById('jaBtn')
+        .classList.toggle(
+          'active',
+          language === 'ja'
+        );
 
-      content.appendChild(title);
+      document
+        .getElementById('enBtn')
+        .classList.toggle(
+          'active',
+          language === 'en'
+        );
 
+      document
+        .getElementById('jaBtn')
+        .setAttribute(
+          'aria-pressed',
+          String(language === 'ja')
+        );
 
-      // 価格
-
-      const price = document.createElement("div");
-
-      price.className = "course-price";
-
-      const formattedPrice = Number(
-        courseId
-      ).toLocaleString("ja-JP");
-
-      price.textContent =
-        currentLanguage === "ja"
-        ? formattedPrice + "円"
-        : "¥" + formattedPrice;
-
-      content.appendChild(price);
-
-
-      // 各カテゴリーと料理名
-
-      courses[courseId].forEach(
-        function(sectionData) {
-
-          const section =
-            document.createElement("section");
-
-          section.className = "section";
+      document
+        .getElementById('enBtn')
+        .setAttribute(
+          'aria-pressed',
+          String(language === 'en')
+        );
 
 
-          // カテゴリー名
 
-          const category =
-            document.createElement("h3");
+      /* 各画面を取得 */
 
-          category.className = "category";
+      const seatScreen =
+        document.getElementById('seatScreen');
 
-          category.textContent =
-            sectionData[currentLanguage];
+      const courseScreen =
+        document.getElementById('courseScreen');
 
-          section.appendChild(category);
-
-
-          // 料理リスト
-
-          if (sectionData.items.length > 0) {
-
-            const list =
-              document.createElement("ul");
-
-            list.className = "dish-list";
+      const detailScreen =
+        document.getElementById('detailScreen');
 
 
-            sectionData.items.forEach(
-              function(dishKey) {
 
-                const item =
-                  document.createElement("li");
+      /* 表示する画面を決める */
 
-                item.textContent =
-                  dishes[dishKey][currentLanguage];
+      seatScreen.hidden =
+        seat !== null;
 
-                list.appendChild(item);
+      courseScreen.hidden =
+        seat === null ||
+        selectedCourse !== null;
+
+      detailScreen.hidden =
+        selectedCourse === null;
+
+
+
+      /* 最初の席種選択画面 */
+
+      document
+        .getElementById('seatTitle')
+        .textContent =
+          word('menu');
+
+      document
+        .getElementById('seatSub')
+        .textContent =
+          word('chooseSeat');
+
+      document
+        .getElementById('counterBtn')
+        .textContent =
+          word('counter');
+
+      document
+        .getElementById('tableBtn')
+        .textContent =
+          word('table');
+
+
+      if (seat === null) {
+        return;
+      }
+
+
+
+      /* コース選択画面 */
+
+      document
+        .getElementById('courseSelectTitle')
+        .textContent =
+          word(seat);
+
+      document
+        .getElementById('courseSelectSub')
+        .textContent =
+          word('selectCourse');
+
+      document
+        .getElementById('backToSeat')
+        .textContent =
+          word('backSeat');
+
+
+
+      if (selectedCourse === null) {
+
+        const buttons =
+          document.getElementById('courseButtons');
+
+        buttons.replaceChildren();
+
+
+
+        Object.keys(menus[seat])
+
+          .sort(
+            (a, b) => Number(b) - Number(a)
+          )
+
+          .forEach(function(id) {
+
+            const button =
+              document.createElement('button');
+
+            button.type = 'button';
+
+            button.className = 'choice';
+
+
+            button.textContent =
+              language === 'ja'
+
+              ? Number(id).toLocaleString('ja-JP')
+                + '円コース'
+
+              : money(id) + ' Course';
+
+
+            button.addEventListener(
+              'click',
+              function() {
+
+                chooseCourse(id);
 
               }
             );
 
 
-            section.appendChild(list);
+            buttons.appendChild(button);
+
+          });
+
+
+        return;
+
+      }
+
+
+
+      /* =====================
+         コースの料理一覧
+         ===================== */
+
+      document
+        .getElementById('detailTitle')
+        .textContent =
+          word('menu') + ' · ' + word(seat);
+
+
+      document
+        .getElementById('detailPrice')
+        .textContent =
+          money(selectedCourse);
+
+
+
+      /* 戻るボタン */
+
+      document
+        .getElementById('backToCourse')
+        .textContent =
+          word('backCourses');
+
+      document
+        .getElementById('backToSeatFromDetail')
+        .textContent =
+          word('backSeat');
+
+
+
+      /* 料理一覧を生成 */
+
+      const dishList =
+        document.getElementById('dishList');
+
+      dishList.replaceChildren();
+
+
+
+      menus[seat][selectedCourse]
+        .forEach(function(key) {
+
+
+          const li =
+            document.createElement('li');
+
+
+          li.textContent =
+            nameOf(key);
+
+
+          dishList.appendChild(li);
+
+
+
+          /* 13,900円のウニの案内 */
+
+          if (
+            seat === 'counter' &&
+            selectedCourse === '13900' &&
+            key === 'uni'
+          ) {
+
+            const note =
+              document.createElement('li');
+
+            note.className = 'note';
+
+            note.textContent =
+              word('uniNote');
+
+            dishList.appendChild(note);
 
           }
 
+        });
 
-          content.appendChild(section);
 
-        }
-      );
+
+      /* =====================
+         といろ巻きの中身
+         ===================== */
+
+      const roll =
+        document.getElementById('rollBox');
+
+
+      roll.hidden =
+        seat !== 'table';
+
+
+
+      if (seat === 'table') {
+
+
+        document
+          .getElementById('rollTitle')
+          .textContent =
+            word('roll');
+
+
+        document
+          .getElementById('rollTopTitle')
+          .textContent =
+            word('top');
+
+
+        document
+          .getElementById('rollInsideTitle')
+          .textContent =
+            word('inside');
+
+
+
+        const index =
+          language === 'ja' ? 0 : 1;
+
+
+
+        document
+          .getElementById('rollTop')
+          .textContent =
+
+            rollIngredients.top
+              .map(
+                item => item[index]
+              )
+              .join('・');
+
+
+
+        document
+          .getElementById('rollInside')
+          .textContent =
+
+            rollIngredients.inside
+              .map(
+                item => item[index]
+              )
+              .join('・');
+
+      }
 
     }
 
 
 
     /* =========================
-       最初の画面に戻る
+       最初の画面を表示
        ========================= */
 
-    function goHome() {
-
-      currentCourse = null;
-
-      document
-        .getElementById("coursePage")
-        .hidden = true;
-
-      document
-        .getElementById("home")
-        .hidden = false;
-
-      window.scrollTo(0, 0);
-
-    }
-
-
-    /* =========================
-       初期化
-       ========================= */
-
-    setLanguage("ja");
+    render();
 
   </script>
 
-
 </body>
-
 </html>
