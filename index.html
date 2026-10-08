@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>鮨 といろ｜お品書き・アクセス</title>
+  <title>鮨 といろ｜お品書き</title>
 
   <style>
     * {
@@ -47,9 +47,7 @@
       color: inherit;
     }
 
-    /* =========================
-       ヘッダー・ロゴ
-    ========================= */
+    /* ヘッダー */
 
     .header {
       position: sticky;
@@ -90,9 +88,7 @@
       );
     }
 
-    /* =========================
-       日本語・英語切り替え
-    ========================= */
+    /* 言語切り替え */
 
     .language {
       display: flex;
@@ -115,9 +111,7 @@
       border-color: var(--gold);
     }
 
-    /* =========================
-       メイン画面
-    ========================= */
+    /* メニュー画面 */
 
     .container {
       max-width: 580px;
@@ -157,9 +151,7 @@
       margin-bottom: 30px;
     }
 
-    /* =========================
-       席・価格選択ボタン
-    ========================= */
+    /* 選択ボタン */
 
     .select-button {
       display: block;
@@ -178,9 +170,7 @@
       background: rgba(212, 175, 55, 0.1);
     }
 
-    /* =========================
-       料理一覧
-    ========================= */
+    /* 料理一覧 */
 
     .price {
       text-align: center;
@@ -209,9 +199,7 @@
       color: #f5eee2;
     }
 
-    /* =========================
-       戻るボタン
-    ========================= */
+    /* 戻るボタン */
 
     .back-button {
       display: block;
@@ -228,131 +216,46 @@
       background: rgba(212, 175, 55, 0.12);
     }
 
-    /* =========================
-       アクセス情報
-    ========================= */
+    /* Instagramロゴ */
 
-    .footer-info {
-      max-width: 580px;
-      margin: 0 auto;
-      padding: 5px 16px 50px;
+    .instagram-footer {
+      text-align: center;
+      padding: 8px 16px 38px;
     }
 
-    .access-section {
-      border-left: 1px solid rgba(212, 175, 55, 0.6);
-      padding: 0 0 0 24px;
-      margin: 0 7px;
-    }
-
-    .section-eyebrow {
-      display: block;
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
       color: var(--gold);
-      font-size: 11px;
-      letter-spacing: 3px;
-      margin-bottom: 13px;
-    }
-
-    .footer-heading {
-      text-align: left;
-      font-size: 25px;
-      font-weight: normal;
-      letter-spacing: 3px;
-      margin: 0 0 25px;
-    }
-
-    .footer-label {
-      font-size: 14px;
-      color: var(--gold);
-      margin: 22px 0 9px;
-    }
-
-    .address {
-      font-style: normal;
-      font-size: 15px;
-      line-height: 2.05;
-      overflow-wrap: anywhere;
-    }
-
-    .directions {
-      font-size: 13px;
-      color: var(--subtext);
-      line-height: 1.85;
-      margin: 18px 0 26px;
-    }
-
-    /* =========================
-       Googleマップ
-    ========================= */
-
-    .map-wrap {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      border-radius: 10px;
-      overflow: hidden;
-      background: #172033;
-    }
-
-    .map-wrap iframe {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .outline-link {
-      display: inline-block;
-      margin: 15px 0 0;
-      padding: 11px 19px;
       border: 1px solid var(--gold-dark);
-      border-radius: 999px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.05);
       text-decoration: none;
-      text-align: center;
-      font-size: 14px;
+      transition: background 0.2s ease;
     }
 
-    .outline-link:hover {
-      background: rgba(212, 175, 55, 0.1);
+    .instagram-link:hover,
+    .instagram-link:focus-visible {
+      background: rgba(212, 175, 55, 0.16);
     }
 
-    /* =========================
-       Instagram
-    ========================= */
-
-    .instagram-area {
-      text-align: center;
-      padding-top: 40px;
-    }
-
-    .instagram-button {
-      display: block;
-      width: min(100%, 350px);
-      margin: 0 auto;
-      padding: 16px 22px;
-      text-decoration: none;
-      font-size: 16px;
-      border: 1px solid var(--gold);
-      border-radius: 9px;
-      color: var(--text);
-      background: rgba(212, 175, 55, 0.07);
-      letter-spacing: 1px;
-    }
-
-    .instagram-button:hover {
-      background: rgba(212, 175, 55, 0.17);
+    .instagram-link svg {
+      width: 30px;
+      height: 30px;
     }
 
     .copyright {
       text-align: center;
-      margin: 28px 0 0;
+      margin: 20px 0 0;
       color: var(--gold-dark);
       font-size: 10px;
       letter-spacing: 3px;
     }
 
-    /* =========================
-       スマホ対応
-    ========================= */
+    /* スマホ用 */
 
     @media (max-width: 480px) {
       .logo {
@@ -387,29 +290,13 @@
       .select-button {
         font-size: 19px;
       }
-
-      .access-section {
-        padding-left: 16px;
-        margin: 0 2px;
-      }
-
-      .address {
-        font-size: 14px;
-      }
-
-      .map-wrap {
-        aspect-ratio: 1 / 1;
-      }
     }
-
   </style>
 </head>
 
 <body>
 
-  <!-- =========================
-       ヘッダー
-  ========================= -->
+  <!-- ヘッダー -->
 
   <header class="header">
 
@@ -448,15 +335,13 @@
 
   </header>
 
-  <!-- =========================
-       メニュー本体
-  ========================= -->
+  <!-- メニュー -->
 
   <main class="container">
 
     <div class="panel">
 
-      <!-- 席種選択画面 -->
+      <!-- 席種選択 -->
 
       <div id="seatPage">
 
@@ -489,7 +374,7 @@
 
       </div>
 
-      <!-- 価格選択画面 -->
+      <!-- コース選択 -->
 
       <div id="pricePage" hidden>
 
@@ -512,7 +397,7 @@
 
       </div>
 
-      <!-- 料理一覧画面 -->
+      <!-- 料理一覧 -->
 
       <div id="menuPage" hidden>
 
@@ -547,115 +432,53 @@
 
   </main>
 
-  <!-- =========================
-       アクセス情報
-  ========================= -->
+  <!-- 一番下のInstagramロゴ -->
 
-  <footer class="footer-info">
+  <footer class="instagram-footer">
 
-    <section
-      class="access-section"
-      aria-labelledby="accessTitle"
+    <a
+      class="instagram-link"
+      href="https://www.instagram.com/p/DZavhNGkjME/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagramを見る（新しいタブで開く）"
+      title="Instagram"
     >
 
-      <span class="section-eyebrow">
-        | ACCESS |
-      </span>
-
-      <h2
-        class="footer-heading"
-        id="accessTitle"
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
       >
-        アクセス
-      </h2>
+        <rect
+          x="2"
+          y="2"
+          width="20"
+          height="20"
+          rx="5"
+        ></rect>
 
-      <div
-        class="footer-label"
-        id="addressLabel"
-      >
-        住所
-      </div>
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
+        ></circle>
 
-      <!-- 日本語住所 -->
+        <circle
+          cx="17.6"
+          cy="6.4"
+          r="1"
+          fill="currentColor"
+          stroke="none"
+        ></circle>
+      </svg>
 
-      <address
-        class="address"
-        id="addressJa"
-      >
-        〒180-0005<br>
-        東京都武蔵野市御殿山1丁目3-3<br>
-        リードシー吉祥寺井の頭公園ビル<br>
-        North棟 B1
-      </address>
-
-      <!-- 英語住所 -->
-
-      <address
-        class="address"
-        id="addressEn"
-        hidden
-      >
-        North Building, B1F<br>
-        LeadC Kichijoji Inokashira Koen Building<br>
-        1-3-3 Gotenyama, Musashino,<br>
-        Tokyo 180-0005, Japan
-      </address>
-
-      <!-- 駅からのアクセス -->
-
-      <p
-        class="directions"
-        id="directions"
-      >
-        JR線・京王井の頭線「吉祥寺駅」
-        西口（公園口）・南口から各徒歩約5分
-      </p>
-
-      <!-- Googleマップ -->
-
-      <div class="map-wrap">
-
-        <iframe
-          title="鮨 といろ 周辺地図"
-          src="https://www.google.com/maps?q=%E9%AE%A8%E3%81%A8%E3%81%84%E3%82%8D%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%AD%A6%E8%94%B5%E9%87%8E%E5%B8%82%E5%BE%A1%E6%AE%BF%E5%B1%B11%E4%B8%81%E7%9B%AE3-3&amp;output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen
-        ></iframe>
-
-      </div>
-
-      <!-- Googleマップを開く -->
-
-      <a
-        id="mapLink"
-        class="outline-link"
-        href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AE%A8%E3%81%A8%E3%81%84%E3%82%8D%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%AD%A6%E8%94%B5%E9%87%8E%E5%B8%82%E5%BE%A1%E6%AE%BF%E5%B1%B11%E4%B8%81%E7%9B%AE3-3"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Googleマップで開く ↗
-      </a>
-
-    </section>
-
-    <!-- =========================
-         Instagram
-    ========================= -->
-
-    <div class="instagram-area">
-
-      <a
-        class="instagram-button"
-        href="https://www.instagram.com/p/DZavhNGkjME/"
-        target="_blank"
-        rel="noopener noreferrer"
-        id="instagramLink"
-      >
-        Instagramを見る ↗
-      </a>
-
-    </div>
+    </a>
 
     <p class="copyright">
       SUSHI TOIRO
@@ -663,26 +486,19 @@
 
   </footer>
 
-  <!-- =========================
-       JavaScript
-  ========================= -->
-
   <script>
 
-    /* 現在の状態 */
+    /* 基本設定 */
 
     let currentLanguage = "ja";
     let currentSeat = null;
     let currentCourse = null;
 
-    /* =========================
-       日英の表示テキスト
-    ========================= */
+    /* 日本語・英語 */
 
     const texts = {
 
       ja: {
-
         month: "10月のお品書き",
         seatSelect: "お席をお選びください",
 
@@ -697,22 +513,10 @@
         sushi: "鮨",
         ippin: "一品料理",
         soup: "お椀",
-        dessert: "甘味",
-
-        access: "アクセス",
-        address: "住所",
-
-        directions:
-          "JR線・京王井の頭線「吉祥寺駅」西口（公園口）・南口から各徒歩約5分",
-
-        map: "Googleマップで開く ↗",
-
-        instagram: "Instagramを見る ↗"
-
+        dessert: "甘味"
       },
 
       en: {
-
         month: "October Menu",
         seatSelect: "Please select your seating",
 
@@ -727,25 +531,12 @@
         sushi: "Sushi",
         ippin: "Seasonal Dishes",
         soup: "Soup",
-        dessert: "Dessert",
-
-        access: "Access",
-        address: "Address",
-
-        directions:
-          "Approx. 5 minutes on foot from the West (Park) or South Exit of Kichijoji Station (JR / Keio Inokashira Line).",
-
-        map: "Open in Google Maps ↗",
-
-        instagram: "View Instagram ↗"
-
+        dessert: "Dessert"
       }
 
     };
 
-    /* =========================
-       料理データ
-    ========================= */
+    /* 料理データ */
 
     const dishes = {
 
@@ -895,15 +686,13 @@
 
     };
 
-    /* =========================
-       10月のコース構成
-    ========================= */
+    /* コース構成 */
 
     const courses = {
 
       counter: {
 
-        // カウンター 16,900円
+        /* カウンター 16,900円 */
 
         "16900": [
           "uniTasting",
@@ -926,8 +715,7 @@
           "dessert"
         ],
 
-        // カウンター 13,900円
-        // 島寿司は削除済み
+        /* カウンター 13,900円 */
 
         "13900": [
           "seasonal",
@@ -953,7 +741,7 @@
 
       table: {
 
-        // テーブル 10,800円
+        /* テーブル 10,800円 */
 
         "10800": [
           "seasonal",
@@ -974,7 +762,7 @@
           "soup"
         ],
 
-        // テーブル 8,800円
+        /* テーブル 8,800円 */
 
         "8800": [
           "squid",
@@ -997,9 +785,7 @@
 
     };
 
-    /* =========================
-       共通関数
-    ========================= */
+    /* 共通関数 */
 
     function t(key) {
       return texts[currentLanguage][key];
@@ -1025,23 +811,18 @@
 
     }
 
-    /* =========================
-       言語変更
-    ========================= */
+    /* 言語変更 */
 
     function setLanguage(lang) {
 
       currentLanguage = lang;
-
       document.documentElement.lang = lang;
 
       render();
 
     }
 
-    /* =========================
-       席を選ぶ
-    ========================= */
+    /* 席を選択 */
 
     function showSeat(seat) {
 
@@ -1049,28 +830,22 @@
       currentCourse = null;
 
       render();
-
       window.scrollTo(0, 0);
 
     }
 
-    /* =========================
-       コースを選ぶ
-    ========================= */
+    /* コースを選択 */
 
     function showCourse(course) {
 
       currentCourse = course;
 
       render();
-
       window.scrollTo(0, 0);
 
     }
 
-    /* =========================
-       席選択に戻る
-    ========================= */
+    /* 席種選択に戻る */
 
     function goSeatPage() {
 
@@ -1078,28 +853,22 @@
       currentCourse = null;
 
       render();
-
       window.scrollTo(0, 0);
 
     }
 
-    /* =========================
-       コース選択に戻る
-    ========================= */
+    /* コース選択に戻る */
 
     function goPricePage() {
 
       currentCourse = null;
 
       render();
-
       window.scrollTo(0, 0);
 
     }
 
-    /* =========================
-       料理一覧の表示
-    ========================= */
+    /* 料理一覧を表示 */
 
     function renderMenu() {
 
@@ -1118,23 +887,19 @@
         const dish = dishes[key];
         const type = dish.type;
 
-        // 鮨と一品料理の切替時に見出しを表示
+        // 種類が変わるときだけ見出しを表示
 
         if (type !== previousType) {
 
           container.appendChild(
-            createElement(
-              "h3",
-              "category",
-              t(type)
-            )
+            createElement("h3", "category", t(type))
           );
 
           previousType = type;
 
         }
 
-        // お椀・甘味は見出しのみ
+        // お椀と甘味は見出しだけ表示
 
         if (
           type === "soup" ||
@@ -1143,7 +908,7 @@
           return;
         }
 
-        // 料理名
+        // 料理名を表示
 
         container.appendChild(
           createElement(
@@ -1157,13 +922,11 @@
 
     }
 
-    /* =========================
-       画面全体の更新
-    ========================= */
+    /* 画面全体を更新 */
 
     function render() {
 
-      // 言語切り替え
+      // 言語切り替えボタン
 
       document
         .getElementById("jaButton")
@@ -1193,7 +956,7 @@
           String(currentLanguage === "en")
         );
 
-      // 表示画面の切り替え
+      // 各ページの表示設定
 
       document
         .getElementById("seatPage")
@@ -1209,7 +972,7 @@
         .getElementById("menuPage")
         .hidden = currentCourse === null;
 
-      // トップページ
+      // 席種選択画面
 
       document
         .getElementById("homeTitle")
@@ -1227,43 +990,11 @@
         .getElementById("tableButton")
         .textContent = t("table");
 
-      // アクセス情報の日英切り替え
-
-      const footerTexts = {
-
-        accessTitle: "access",
-        addressLabel: "address",
-        directions: "directions",
-        mapLink: "map",
-        instagramLink: "instagram"
-
-      };
-
-      Object.entries(footerTexts).forEach(
-        function(entry) {
-
-          document
-            .getElementById(entry[0])
-            .textContent = t(entry[1]);
-
-        }
-      );
-
-      document
-        .getElementById("addressJa")
-        .hidden = currentLanguage !== "ja";
-
-      document
-        .getElementById("addressEn")
-        .hidden = currentLanguage !== "en";
-
-      // まだ席を選択していない場合
-
       if (currentSeat === null) {
         return;
       }
 
-      // コース選択ページ
+      // コース選択画面
 
       document
         .getElementById("seatTitle")
@@ -1283,9 +1014,7 @@
       buttons.replaceChildren();
 
       Object.keys(courses[currentSeat])
-        .sort(function(a, b) {
-          return Number(b) - Number(a);
-        })
+        .sort((a, b) => Number(b) - Number(a))
         .forEach(function(price) {
 
           const btn = createElement(
@@ -1306,13 +1035,11 @@
 
         });
 
-      // コースをまだ選択していない場合
-
       if (currentCourse === null) {
         return;
       }
 
-      // 料理一覧ページ
+      // 料理一覧画面
 
       document
         .getElementById("menuTitle")
@@ -1338,8 +1065,7 @@
 
     }
 
-    // 最初の画面を表示
-
+    // 初期表示
     render();
 
   </script>
